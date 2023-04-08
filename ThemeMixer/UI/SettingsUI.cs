@@ -69,7 +69,7 @@ namespace TM {
 
     internal class TM2Atlas {
         private static UITextureAtlas tMAtlas;
-        public static Dictionary<string, RectOffset> SpriteParams { get; private set; } = new();
+        public static Dictionary<string, RectOffset> SpriteParams { get; private set; } = new Dictionary<string, RectOffset>();
         public static string OptionPanelBG => nameof(OptionPanelBG);
         //Your image name, also included in you project.
         static TM2Atlas() => SpriteParams[OptionPanelBG] = new RectOffset(4, 4, 4, 4);
@@ -91,7 +91,7 @@ namespace TM {
         public static UITextureAtlas CreateTextureAtlas(string atlasName, string path, Dictionary<string, RectOffset> spriteParams, int maxSpriteSize = 1024) {
             var keys = spriteParams.Keys.ToArray();
             var value = spriteParams.Values.ToArray();
-            Texture2D texture2D = new(maxSpriteSize, maxSpriteSize, TextureFormat.ARGB32, false);
+            Texture2D texture2D = new Texture2D(maxSpriteSize, maxSpriteSize, TextureFormat.ARGB32, false);
             Texture2D[] textures = new Texture2D[spriteParams.Count];
             for (int i = 0; i < spriteParams.Count; i++) {
                 textures[i] = LoadTextureFromAssembly(path + keys[i] + "BackgroundImage.png");
@@ -103,7 +103,7 @@ namespace TM {
             uITextureAtlas.material = material;
             uITextureAtlas.name = atlasName;
             for (int j = 0; j < spriteParams.Count; j++) {
-                UITextureAtlas.SpriteInfo item = new() {
+                UITextureAtlas.SpriteInfo item = new UITextureAtlas.SpriteInfo() {
                     name = keys[j],
                     texture = textures[j],
                     region = regions[j],

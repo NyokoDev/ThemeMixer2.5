@@ -1,6 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<LangVersion>9.0</LangVersion>
 		<TargetFramework>net35</TargetFramework>
 		<Title>ThemeMixer</Title>
 		<AssemblyTitle>$(Title)</AssemblyTitle>
@@ -8,7 +7,7 @@
 		<Product>$(Title)</Product>
 		<Version>1.0</Version>
 		<ManagedDLLPath>$(MSBuildProgramFiles32)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed</ManagedDLLPath>
-		<UEPath>$(MSBuildProgramFiles32)/Steam/steamapps/workshop/content/255710/674873322</UEPath>
+		<UEPath>$(MSBuildProgramFiles32)/Steam/steamapps/workshop/content/255710/672248733</UEPath>
 		<AssemblySearchPaths>
 			$(AssemblySearchPaths);
 			$(ManagedDLLPath);
