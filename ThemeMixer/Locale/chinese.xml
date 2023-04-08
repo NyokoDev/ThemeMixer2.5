@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="zh" ReadableName="简体中文" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2009/XMLSchema/XMLSchema.xsd">
+  <Translations>
+    <Translation ID="MOD_DESCRIPTION" String="允许您加载、混合和自定义地图主题" />
+    <Translation ID="BUTTON_OK" String="OK" />
+    <Translation ID="BUTTON_CLOSE" String="关闭" />
+    <Translation ID="BUTTON_SAVE" String="保存" />
+    <Translation ID="BUTTON_SAVED" String="已保存!" />
+    <Translation ID="BUTTON_LOAD" String="加载" />
+    <Translation ID="BUTTON_SUBSCRIBE" String="订阅" />
+    <Translation ID="TOOLTIP_BUTTON_SUBSCRIBE" String="您缺少此组合中的某些主题，请按此按钮立即订阅。 建议您在之后重新启动游戏." />
+	<Translation ID="SETTINGS_THEME_LABEL" String="您缺少此组合中的某些主题，请按此按钮立即订阅。 建议您在之后重新启动游戏." />
+    <Translation ID="TOOLTIP_THEMES" String="主题" />
+    <Translation ID="TOOLTIP_TERRAIN" String="地形" />
+    <Translation ID="TOOLTIP_WATER" String="水" />
+    <Translation ID="TOOLTIP_ATMOSPHERE" String="大气层" />
+    <Translation ID="TOOLTIP_STRUCTURES" String="结构" />
+    <Translation ID="TOOLTIP_WEATHER" String="天气" />
+    <Translation ID="TOOLTIP_LUTS" String="Color Correction" />
+    <Translation ID="TOOLTIP_MIXES" String="混合" />
+    <Translation ID="TOOLTIP_TILING" String="纹理部分" />
+    <Translation ID="TOOLTIP_OFFSET" String="色彩偏移" />
+    <Translation ID="TOOLTIP_ADDFAVOURITE_ADDBLACKLIST" String="左键单击添加到收藏夹，右键单击添加到黑名单" />
+    <Translation ID="TOOLTIP_REMOVEFAVOURITE" String="左键单击可从收藏夹中删除，右键单击可添加到黑名单" />
+    <Translation ID="TOOLTIP_REMOVEBLACKLIST" String="左键单击可添加到收藏夹，右键单击可从黑名单中删除" />
+    <Translation ID="TOOLTIP_LOADFROMTHEME" String="从地图主题加载此值" />
+    <Translation ID="TOOLTIP_RESET" String="重置为上次加载的值" />
+    <Translation ID="TOOLTIP_VALUE_GRASSDETAIL" String="切换“装饰”草精灵" />
+    <Translation ID="TOOLTIP_VALUE_CLIFFDETAIL" String="切换“装饰性”岩石精灵" />
+    <Translation ID="TOOLTIP_VALUE_FERTILEDETAIL" String="切换“装饰性”沃土精灵" />
+    <Translation ID="TOOLTIP_OPENCOLORPICKER" String="打开颜色选择器" />
+    <Translation ID="TOOLTIP_BUTTON_SAVE_MAXREACHED" String="您已达到保存的最大数量" />
+    <Translation ID="TOOLTIP_BUTTON_SAVE_COLOREXISTS" String="当前选择的颜色已经保存" />
+    <Translation ID="TOOLTIP_BUTTON_SAVE" String="保存此颜色以备后用" />
+    <Translation ID="TOOLTIP_USEASDEFAULT" String="当您开始一个新城市时，使用此组合作为默认设置" />
+    <Translation ID="TOOLTIP_DISABLECOMPILE" String="Some Mac systems do not support compilation for Theme Mixes. Enable this option if you get an error when trying to save a mix." />
+    <Translation ID="LABEL_SELECTLUT" String="Select LUT:" />
+    <Translation ID="LABEL_SELECTMIX" String="选择混合:" />
+    <Translation ID="LABEL_SAVEMIX" String="保存混合" />
+    <Translation ID="LABEL_USEASDEFAULT" String="默认使用" />
+    <Translation ID="LABEL_DISABLECOMPILE" String="Disable compilation" />
+    <Translation ID="LABEL_NAME" String="名字" />
+    <Translation ID="LABEL_SUBSCRIBE_WARNING_TITLE" String="Game restart required!" />
+    <Translation ID="LABEL_SUBSCRIBE_WARNING_MESSAGE" String="Your themes are downloading, please quit the game, wait for themes to finish downloading, then re-start the game." />
+    <Translation ID="LABEL_BY" String="by" />
+    <Translation ID="LABEL_MIXES" String="混合" />
+    <Translation ID="LABEL_LUTS" String="Color Correction" />
+    <Translation ID="LABEL_THEME" String="主题" />
+    <Translation ID="LABEL_TERRAIN" String="地形" />
+    <Translation ID="LABEL_ATMOSPHERE" String="大气层" />
+    <Translation ID="LABEL_WATER" String="水" />
+    <Translation ID="LABEL_WEATHER" String="天气" />
+    <Translation ID="LABEL_STRUCTURES" String="结构" />
+    <Translation ID="LABEL_COLOR" String="颜色" />
+    <Translation ID="LABEL_OFFSET" String="色彩偏移" />
+    <Translation ID="LABEL_VALUE" String="值" />
+    <Translation ID="LABEL_TEXTURE" String="纹理" />
+    <Translation ID="LABEL_SELECT" String="选择" />
+    <Translation ID="LABEL_GRASS_DIFFUSE" String="草纹理" />
+    <Translation ID="LABEL_RUINED_DIFFUSE" String="毁坏的纹理" />
+    <Translation ID="LABEL_PAVEMENT_DIFFUSE" String="人行道纹理" />
+    <Translation ID="LABEL_GRAVEL_DIFFUSE" String="公路碎石纹理" />
+    <Translation ID="LABEL_CLIFF_DIFFUSE" String="悬崖岩石纹理" />
+    <Translation ID="LABEL_SAND_DIFFUSE" String="沙滩纹理" />
+    <Translation ID="LABEL_OIL_DIFFUSE" String="石油储量纹理" />
+    <Translation ID="LABEL_ORE_DIFFUSE" String="矿石纹理" />
+    <Translation ID="LABEL_CLIFFSAND_NORMAL" String="悬崖沙石普通纹理" />
+    <Translation ID="LABEL_UPWARD_ROAD_DIFFUSE" String="路面纹理" />
+    <Translation ID="LABEL_DOWNWARD_ROAD_DIFFUSE" String="路面质地" />
+    <Translation ID="LABEL_BUILDING_FLOOR_DIFFUSE" String="建筑地板纹理" />
+    <Translation ID="LABEL_BUILDING_BASE_DIFFUSE" String="建筑基础纹理" />
+    <Translation ID="LABEL_BUILDING_BASE_NORMAL" String="施工现场纹理" />
+    <Translation ID="LABEL_BUILDING_BURNT_DIFFUSE" String="烧毁的建筑纹理" />
+    <Translation ID="LABEL_BUILDING_ABANDONED_DIFFUSE" String="遗弃的建筑物纹理" />
+    <Translation ID="LABEL_LIGHT_COLOR_PALETTE" String="浅色调色板" />
+    <Translation ID="LABEL_MOON_DIFFUSE" String="月亮纹理" />
+    <Translation ID="LABEL_WATER_FOAM" String="水波纹" />
+    <Translation ID="LABEL_WATER_NORMAL" String="正常水" />
+    <Translation ID="LABEL_OFFSET_POLLUTION" String="污染" />
+    <Translation ID="LABEL_OFFSET_FERTILITY" String="沃土" />
+    <Translation ID="LABEL_OFFSET_FIELD" String="田地" />
+    <Translation ID="LABEL_OFFSET_FOREST" String="森林" />
+    <Translation ID="LABEL_TITLE_DETAIL" String="装饰精灵" />
+    <Translation ID="LABEL_VALUE_GRASSDETAIL" String="显示草精灵" />
+    <Translation ID="LABEL_VALUE_CLIFFDETAIL" String="显示岩石精灵" />
+    <Translation ID="LABEL_VALUE_FERTILEDETAIL" String="显示沃土精灵" />
+    <Translation ID="LABEL_RED" String="红" />
+    <Translation ID="LABEL_GREEN" String="绿" />
+    <Translation ID="LABEL_BLUE" String="蓝" />
+    <Translation ID="LABEL_NEW_SWATCH" String="新保存的颜色" />
+    <Translation ID="LABEL_MOONINNERCORONA" String="月亮中心亮度" />
+    <Translation ID="LABEL_MOONOUTERCORONA" String="月亮光圈亮度" />
+    <Translation ID="LABEL_SKYTINT" String="天空色彩" />
+    <Translation ID="LABEL_NIGHTHORIZONCOLOR" String="夜晚的天空" />
+    <Translation ID="LABEL_EARLYNIGHTZENITHCOLOR" String="日出时天空的颜色" />
+    <Translation ID="LABEL_LATENIGHTZENITHCOLOR" String="日落时天空的颜色" />
+    <Translation ID="LABEL_WATERCLEAN" String="水" />
+    <Translation ID="LABEL_WATERDIRTY" String="污水" />
+    <Translation ID="LABEL_WATERUNDER" String="水下" />
+    <Translation ID="LABEL_VALUE_LONGITUDE" String="经度" />
+    <Translation ID="LABEL_VALUE_LATITUDE" String="纬度" />
+    <Translation ID="LABEL_VALUE_SUNSIZE" String="太阳大小" />
+    <Translation ID="LABEL_VALUE_SUNANISOTROPY" String="太阳各向异性" />
+    <Translation ID="LABEL_VALUE_MOONSIZE" String="月亮大小" />
+    <Translation ID="LABEL_VALUE_RAYLEIGH" String="雷氏散射" />
+    <Translation ID="LABEL_VALUE_MIE" String="米氏散射" />
+    <Translation ID="LABEL_VALUE_EXPOSURE" String="曝光" />
+    <Translation ID="LABEL_VALUE_STARSINTENSITY" String="星星强度" />
+    <Translation ID="LABEL_VALUE_OUTERSPACEINTENSITY" String="外层空间强度" />
+    <Translation ID="LABEL_VALUE_MINTEMPERATUREDAY" String="白天最低气温" />
+    <Translation ID="LABEL_VALUE_MAXTEMPERATUREDAY" String="白天最高气温" />
+    <Translation ID="LABEL_VALUE_MINTEMPERATURENIGHT" String="夜晚最低气温" />
+    <Translation ID="LABEL_VALUE_MAXTEMPERATURENIGHT" String="夜晚最高气温" />
+    <Translation ID="LABEL_VALUE_MINTEMPERATURERAIN" String="最低降雨温度" />
+    <Translation ID="LABEL_VALUE_MAXTEMPERATURERAIN" String="最高降雨温度" />
+    <Translation ID="LABEL_VALUE_MINTEMPERATUREFOG" String="最低雾温" />
+    <Translation ID="LABEL_VALUE_MAXTEMPERATUREFOG" String="最高雾温" />
+    <Translation ID="LABEL_VALUE_RAINPROBABILITYDAY" String="白天降雨概率" />
+    <Translation ID="LABEL_VALUE_RAINPROBABILITYNIGHT" String="夜晚降雨概率" />
+    <Translation ID="LABEL_VALUE_FOGPROBABILITYDAY" String="白天大雾概率" />
+    <Translation ID="LABEL_VALUE_FOGPROBABILITYNIGHT" String="夜晚大雾概率" />
+    <Translation ID="LABEL_VALUE_NORTHERNLIGHTSPROBABILITY" String="北极光概率" />
+  </Translations>
+</Language>

@@ -1,0 +1,106 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<LangVersion>9.0</LangVersion>
+		<TargetFramework>net35</TargetFramework>
+		<Title>ThemeMixer</Title>
+		<AssemblyTitle>$(Title)</AssemblyTitle>
+		<Copyright>Copyright © 2023</Copyright>
+		<Product>$(Title)</Product>
+		<Version>1.0</Version>
+		<ManagedDLLPath>$(MSBuildProgramFiles32)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed</ManagedDLLPath>
+		<UEPath>$(MSBuildProgramFiles32)/Steam/steamapps/workshop/content/255710/674873322</UEPath>
+		<AssemblySearchPaths>
+			$(AssemblySearchPaths);
+			$(ManagedDLLPath);
+			$(UEPath)
+		</AssemblySearchPaths>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<AutoGenerateBindingRedirects>False</AutoGenerateBindingRedirects>
+		<AnalysisLevel>none</AnalysisLevel>
+		<OutputType>Library</OutputType>
+		<EnableNETAnalyzers>False</EnableNETAnalyzers>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <Deterministic>True</Deterministic>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <Deterministic>True</Deterministic>
+	</PropertyGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\Files\LutIcon.png" />
+		<EmbeddedResource Include="Resources\Files\LutIconFocused.png" />
+		<EmbeddedResource Include="Resources\Files\LutIconHovered.png" />
+		<EmbeddedResource Include="Resources\Files\LutIconPressed.png" />
+		<EmbeddedResource Include="Resources\Files\Swatch.png" />
+		<EmbeddedResource Include="Resources\Files\IconBorder.png" />
+		<EmbeddedResource Include="Resources\Files\IconBorderFocused.png" />
+		<EmbeddedResource Include="Resources\Files\IconBorderHovered.png" />
+		<EmbeddedResource Include="Resources\Files\IconBorderPressed.png" />
+		<EmbeddedResource Include="Resources\Files\UndoIcon.png" />
+		<EmbeddedResource Include="Resources\Files\UndoIconHovered.png" />
+		<EmbeddedResource Include="Resources\Files\UndoIconPressed.png" />
+		<EmbeddedResource Include="Resources\Files\Blacklisted.png" />
+		<EmbeddedResource Include="Resources\Files\Star.png" />
+		<EmbeddedResource Include="Resources\Files\StarOutline.png" />
+		<EmbeddedResource Include="Resources\Files\ThemesIcon.png" />
+		<EmbeddedResource Include="Resources\Files\ThemesIconFocused.png" />
+		<EmbeddedResource Include="Resources\Files\ThemesIconHovered.png" />
+		<EmbeddedResource Include="Resources\Files\ThemesIconPressed.png" />
+		<EmbeddedResource Include="Resources\Files\DragHandle.png" />
+		<EmbeddedResource Include="Resources\Files\UIToggleIcon.png" />
+		<EmbeddedResource Include="Resources\Files\UIToggleIconFocused.png" />
+		<EmbeddedResource Include="Resources\Files\UIToggleIconHovered.png" />
+		<EmbeddedResource Include="Resources\Files\UIToggleIconPressed.png" />
+		<EmbeddedResource Include="Resources\Files\SettingsIcon.png" />
+		<EmbeddedResource Include="Resources\Files\SettingsIconFocused.png" />
+		<EmbeddedResource Include="Resources\Files\SettingsIconHovered.png" />
+		<EmbeddedResource Include="Resources\Files\SettingsIconPressed.png" />
+		<EmbeddedResource Include="Resources\Files\AtmosphereIcon.png" />
+		<EmbeddedResource Include="Resources\Files\AtmosphereIconFocused.png" />
+		<EmbeddedResource Include="Resources\Files\AtmosphereIconHovered.png" />
+		<EmbeddedResource Include="Resources\Files\AtmosphereIconPressed.png" />
+		<EmbeddedResource Include="Resources\Files\StructuresIcon.png" />
+		<EmbeddedResource Include="Resources\Files\StructuresIconFocused.png" />
+		<EmbeddedResource Include="Resources\Files\StructuresIconHovered.png" />
+		<EmbeddedResource Include="Resources\Files\StructuresIconPressed.png" />
+		<EmbeddedResource Include="Resources\Files\TerrainIcon.png" />
+		<EmbeddedResource Include="Resources\Files\TerrainIconFocused.png" />
+		<EmbeddedResource Include="Resources\Files\TerrainIconHovered.png" />
+		<EmbeddedResource Include="Resources\Files\TerrainIconPressed.png" />
+		<EmbeddedResource Include="Resources\Files\WaterIcon.png" />
+		<EmbeddedResource Include="Resources\Files\WaterIconFocused.png" />
+		<EmbeddedResource Include="Resources\Files\WaterIconHovered.png" />
+		<EmbeddedResource Include="Resources\Files\WaterIconPressed.png" />
+		<EmbeddedResource Include="Resources\Files\WeatherIcon.png" />
+		<EmbeddedResource Include="Resources\Files\WeatherIconFocused.png" />
+		<EmbeddedResource Include="Resources\Files\WeatherIconHovered.png" />
+		<EmbeddedResource Include="Resources\Files\WeatherIconPressed.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CitiesHarmony.API" Version="2.2.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="Assembly-CSharp" />
+		<Reference Include="ColossalManaged" />
+		<Reference Include="ICities" />
+		<Reference Include="UltimateEyecandy">
+		  <HintPath>..\..\..\UltimateEyecandy.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine" />
+	</ItemGroup>
+	<ItemGroup>
+		<_Locales Include="$(ProjectDir)/Locale/*.xml" />
+		<_Themes Include="$(ProjectDir)/Resources/Themes/*.crp" />
+	</ItemGroup>
+	<Target Name="DeployToModDirectory" AfterTargets="Build">
+		<PropertyGroup>
+			<DeployDir>$(LOCALAPPDATA)/Colossal Order/Cities_Skylines/Addons/Mods/$(SolutionName)/</DeployDir>
+		</PropertyGroup>
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(DeployDir)" />
+		<Copy SourceFiles="$(TargetDir)/CitiesHarmony.API.dll" DestinationFolder="$(DeployDir)" />
+		<Copy SourceFiles="@(_Locales)" DestinationFolder="$(DeployDir)/Locale" />
+		<Copy SourceFiles="@(_Themes)" DestinationFolder="$(DeployDir)" />
+	</Target>
+</Project>
