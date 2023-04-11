@@ -76,6 +76,7 @@
 		<EmbeddedResource Include="Resources\Files\WeatherIconFocused.png" />
 		<EmbeddedResource Include="Resources\Files\WeatherIconHovered.png" />
 		<EmbeddedResource Include="Resources\Files\WeatherIconPressed.png" />
+		<EmbeddedResource Include="UI\BackgroundImage.png" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="CitiesHarmony.API" Version="2.2.0" />
@@ -85,13 +86,16 @@
 		<Reference Include="ColossalManaged" />
 		<Reference Include="ICities" />
 		<Reference Include="UltimateEyecandy">
-		  <HintPath>..\..\..\UltimateEyecandy.dll</HintPath>
+		  <HintPath>..\..\CS MODS\UltimateEyecandy.dll</HintPath>
 		</Reference>
 		<Reference Include="UnityEngine" />
 	</ItemGroup>
 	<ItemGroup>
 		<_Locales Include="$(ProjectDir)/Locale/*.xml" />
 		<_Themes Include="$(ProjectDir)/Resources/Themes/*.crp" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="UI\BackgroundImage.png" />
 	</ItemGroup>
 	<Target Name="DeployToModDirectory" AfterTargets="Build">
 		<PropertyGroup>

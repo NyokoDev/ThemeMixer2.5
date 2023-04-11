@@ -12,7 +12,6 @@ namespace ThemeMixer.Patching
             if (File.Exists(Path.Combine(contentPath, "ThemeMix.xml")))
             {
                 tags = new[] { SteamHelper.kSteamTagMapTheme, "Theme Mix" };
-                tags = new[] { SteamHelper.kSteamTagMapTheme, "For use with Theme Mixer 2.5" };
             }
         }
     }

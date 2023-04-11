@@ -147,7 +147,7 @@ namespace ThemeMixer.Serialization
             LoadAvailableMixes();
         }
 
-        private const string FileName = "TM2.5_Config.xml";
+        private const string FileName = "ThemeMixerSettings.xml";
         private static string FilePath => Path.Combine(DataLocation.localApplicationData, FileName);
 
         private Data _data;
@@ -288,7 +288,7 @@ namespace ThemeMixer.Serialization
             string usedAssets = sb.ToString();
             try
             {
-                File.WriteAllText(Path.Combine(mixDir, "AssetCatalog.txt"), usedAssets);
+                File.WriteAllText(Path.Combine(mixDir, "UsedAssets.txt"), usedAssets);
             }
             catch (Exception e)
             {

@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using ThemeMixer.Resources;
 using UnityEngine;
 
 namespace TM {
@@ -15,26 +16,40 @@ namespace TM {
         public void OnSettingsUI(UIHelperBase helper) {
             var panel = (helper.AddGroup("Theme Mixer 2.5") as UIHelper).self as UIPanel;
             panel.atlas = TM2Atlas.TMAtlas;
-            panel.backgroundSprite = TM2Atlas.OptionPanelBG;
+            panel.backgroundSprite = TM2Atlas.BackgroundImage;
             //Set what you wanna size.
             panel.size = new Vector2();
-            var dropDown = AddDropDown(panel, "Interface Color", new string[] { "Blue", "Green", "Yellow", "Red" }, 0, (_) => {
-                if (_ == 0) {
-
-                } else if (_ == 1) {
-                    // code to set interface color to green
-                } else if (_ == 2) {
-                    // code to set interface color to yellow
-                } else {
-                    // code to set interface color to red
+            var dropDown = AddDropDown(panel, "Interface Color", new string[] { "Purple", "Dark Blue", "Red", "Light Blue", "Default" }, 0, (_) => {
+                if (_ == 0)
+                {
+                    ColorData.UIColor = ColorData.UIColorPurple;
+                }
+                else if (_ == 1)
+                {
+                    ColorData.UIColor = ColorData.UIColorDarkBlue;
+                }
+                else if (_ == 2)
+                {
+                    ColorData.UIColor = ColorData.UIColorRed;
+                }
+                else if (_ == 3)
+                {
+                    ColorData.UIColor = ColorData.UIColorLightBlue;
+                }
+                else
+                {
+                    ColorData.UIColor = new Color32(200, 200, 200, 255);
                 }
             });
+
+
+
             //You have to set position, and set where you want.
             dropDown.relativePosition = new Vector2(10, 10);
 
-            var donateButton = AddButton(panel, "Donate", () => Application.OpenURL("https://www.example.com/donate"));
+            var donateButton = AddButton(panel, "Donate", () => Application.OpenURL("https://www.paypal.com/donate/?hosted_button_id=DZYTC3AEG85V8"));
             donateButton.relativePosition = new Vector2(50, 80);
-            var supportButton = AddButton(panel, "Support and assistance", () => Application.OpenURL("https://www.example.com/donate"));
+            var supportButton = AddButton(panel, "Support and assistance", () => Application.OpenURL("https://steamcommunity.com/workshop/filedetails/discussion/2954236385/3819655917505218354/"));
             supportButton.relativePosition = new Vector2(50, donateButton.relativePosition.y + donateButton.size.y + 10);
         }
 
@@ -70,15 +85,15 @@ namespace TM {
     internal class TM2Atlas {
         private static UITextureAtlas tMAtlas;
         public static Dictionary<string, RectOffset> SpriteParams { get; private set; } = new Dictionary<string, RectOffset>();
-        public static string OptionPanelBG => nameof(OptionPanelBG);
+        public static string BackgroundImage => nameof(BackgroundImage);
         //Your image name, also included in you project.
-        static TM2Atlas() => SpriteParams[OptionPanelBG] = new RectOffset(4, 4, 4, 4);
+        static TM2Atlas() => SpriteParams[BackgroundImage] = new RectOffset(4, 4, 4, 4);
         //Atlas what we create.
         public static UITextureAtlas TMAtlas {
             get {
                 if (tMAtlas is null) {
                     var assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
-                    tMAtlas = UIUtils.CreateTextureAtlas(nameof(TMAtlas), $"{assemblyName}.UI.Resources.", SpriteParams);
+                    tMAtlas = UIUtils.CreateTextureAtlas(nameof(TMAtlas), $"{assemblyName}.UI.", SpriteParams);
                     return tMAtlas;
                 } else {
                     return tMAtlas;
@@ -94,7 +109,7 @@ namespace TM {
             Texture2D texture2D = new Texture2D(maxSpriteSize, maxSpriteSize, TextureFormat.ARGB32, false);
             Texture2D[] textures = new Texture2D[spriteParams.Count];
             for (int i = 0; i < spriteParams.Count; i++) {
-                textures[i] = LoadTextureFromAssembly(path + keys[i] + "BackgroundImage.png");
+                textures[i] = LoadTextureFromAssembly(path + keys[i] + ".png");
             }
             Rect[] regions = texture2D.PackTextures(textures, 2, maxSpriteSize);
             UITextureAtlas uITextureAtlas = ScriptableObject.CreateInstance<UITextureAtlas>();
