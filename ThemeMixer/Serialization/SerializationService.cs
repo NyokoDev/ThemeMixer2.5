@@ -261,6 +261,11 @@ namespace ThemeMixer.Serialization
             if (!Data.DisableCompile) CreateSourceCode(mixModSourceDir, mixNameTypeSafe, mixName);
             CreateUsedAssetsFile(mix, mixDir);
             SaveXmlFile(mix, mixDir);
+
+            // Force manual compilation of source at controlled time.
+            // Only specify ICities.dll as additional assembly to avoid 'file not found' errors with m_additionalAssembly empty strings.
+            PluginManager.CompileSourceInFolder(mixModSourceDir, mixDir, new string[] { typeof(ICities.IUserMod).Assembly.Location });
+
             LoadAvailableMixes();
         }
 
