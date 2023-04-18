@@ -86,7 +86,7 @@
 		<Reference Include="ColossalManaged" />
 		<Reference Include="ICities" />
 		<Reference Include="UltimateEyecandy">
-		  <HintPath>..\..\CS MODS\UltimateEyecandy.dll</HintPath>
+		  <HintPath>..\..\ThemeMixer-masterUXUITESTING\ThemeMixer-master\ThemeMixer-master\UltimateEyecandy.dll</HintPath>
 		</Reference>
 		<Reference Include="UnityEngine" />
 	</ItemGroup>
@@ -95,7 +95,14 @@
 		<_Themes Include="$(ProjectDir)/Resources/Themes/*.crp" />
 	</ItemGroup>
 	<ItemGroup>
+	  <None Remove="Locale\spanish.xml" />
 	  <None Remove="UI\BackgroundImage.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <_Locales Remove="Locale\spanish.xml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="Locale\spanish.xml" />
 	</ItemGroup>
 	<Target Name="DeployToModDirectory" AfterTargets="Build">
 		<PropertyGroup>

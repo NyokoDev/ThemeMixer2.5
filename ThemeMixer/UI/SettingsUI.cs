@@ -7,7 +7,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using ThemeMixer.Locale;
 using ThemeMixer.Resources;
+using ThemeMixer.TranslationFramework;
 using UnityEngine;
 
 namespace TM {
@@ -19,7 +21,7 @@ namespace TM {
             panel.backgroundSprite = TM2Atlas.BackgroundImage;
             //Set what you wanna size.
             panel.size = new Vector2();
-            var dropDown = AddDropDown(panel, "Interface Color", new string[] { "Purple", "Dark Blue", "Red", "Light Blue", "Default" }, 0, (_) => {
+            var dropDown = AddDropDown(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_INTERFACE_THEME_LABEL), new string[] { "Purple", "Dark Blue", "Red", "Light Blue", "Default" }, 0, (_) => {
                 if (_ == 0)
                 {
                     ColorData.UIColor = ColorData.UIColorPurple;
@@ -47,9 +49,9 @@ namespace TM {
             //You have to set position, and set where you want.
             dropDown.relativePosition = new Vector2(10, 10);
 
-            var donateButton = AddButton(panel, "Donate", () => Application.OpenURL("https://www.paypal.com/donate/?hosted_button_id=DZYTC3AEG85V8"));
+            var donateButton = AddButton(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_DONATE_THEME_LABEL), () => Application.OpenURL("https://www.paypal.com/donate/?hosted_button_id=DZYTC3AEG85V8"));
             donateButton.relativePosition = new Vector2(50, 80);
-            var supportButton = AddButton(panel, "Support and assistance", () => Application.OpenURL("https://steamcommunity.com/workshop/filedetails/discussion/2954236385/3819655917505218354/"));
+            var supportButton = AddButton(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_SUPPORT_THEME_LABEL), () => Application.OpenURL("https://steamcommunity.com/workshop/filedetails/discussion/2954236385/3819655917505218354/"));
             supportButton.relativePosition = new Vector2(50, donateButton.relativePosition.y + donateButton.size.y + 10);
         }
 

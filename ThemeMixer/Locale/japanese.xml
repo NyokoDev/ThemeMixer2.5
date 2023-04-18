@@ -9,7 +9,9 @@
     <Translation ID="BUTTON_LOAD" String="ロード"/>
     <Translation ID="BUTTON_SUBSCRIBE" String="サブスク"/>
     <Translation ID="TOOLTIP_BUTTON_SUBSCRIBE" String="テーマをミックスするには、マップテーマが足りません。ボタンを押してサブスクしましょう。マップテーマはゲームを再起動しないと利用できません。"/>
-	<Translation ID="SETTINGS_THEME_LABEL" String="Switch interface color." />
+	<Translation ID="SETTINGS_DONATE_THEME_LABEL" String="寄付" />
+	<Translation ID="SETTINGS_SUPPORT_THEME_LABEL" String="サポートとアシスト" />
+	<Translation ID="SETTINGS_INTERFACE_THEME_LABEL" String="インターフェースの色を変更する" />
     <Translation ID="TOOLTIP_THEMES" String="テーマ"/>
     <Translation ID="TOOLTIP_TERRAIN" String="地形"/>
     <Translation ID="TOOLTIP_WATER" String="水域"/>

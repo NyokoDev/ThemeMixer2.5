@@ -1,124 +1,126 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Language UniqueName="ru" ReadableName="Русский" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2009/XMLSchema/XMLSchema.xsd">
-  <Translations>
-    <Translation ID="MOD_DESCRIPTION" String="Позволяеть загружать, комбинировать и настраивать темы карт" />
-    <Translation ID="BUTTON_OK" String="OK" />
-    <Translation ID="BUTTON_CLOSE" String="Закрыть" />
-    <Translation ID="BUTTON_SAVE" String="Сохранить" />
-    <Translation ID="BUTTON_SAVED" String="Сохранено!" />
-    <Translation ID="BUTTON_LOAD" String="Загрузить" />
-    <Translation ID="BUTTON_SUBSCRIBE" String="Подписаться" />
-    <Translation ID="TOOLTIP_BUTTON_SUBSCRIBE" String="Вам не хватает некоторых тем для этого микса, нажмите эту кнопку, чтобы подписаться на них сейчас. После этого перезапустите игру." />
-	<Translation ID="SETTINGS_THEME_LABEL" String="Switch interface color." />
-    <Translation ID="TOOLTIP_THEMES" String="Темы" />
-    <Translation ID="TOOLTIP_TERRAIN" String="Поверхность" />
-    <Translation ID="TOOLTIP_WATER" String="Вода" />
-    <Translation ID="TOOLTIP_ATMOSPHERE" String="Атмосфера" />
-    <Translation ID="TOOLTIP_STRUCTURES" String="Структуры" />
-    <Translation ID="TOOLTIP_WEATHER" String="Погода" />
-    <Translation ID="TOOLTIP_MIXES" String="Миксы" />
-    <Translation ID="TOOLTIP_LUTS" String="Color Correction" />
-    <Translation ID="TOOLTIP_TILING" String="Текстурные части" />
-    <Translation ID="TOOLTIP_OFFSET" String="Смещение цвета" />
-    <Translation ID="TOOLTIP_ADDFAVOURITE_ADDBLACKLIST" String="Щёлкните левой кнопкой мыши, чтобы добавить в избранное, щёлкните правой кнопкой мыши, чтобы добавить в чёрный список" />
-    <Translation ID="TOOLTIP_REMOVEFAVOURITE" String="Щёлкните левой кнопкой мыши, чтобы удалить из избранного, щёлкните правой кнопкой мыши, чтобы добавить в чёрный список" />
-    <Translation ID="TOOLTIP_REMOVEBLACKLIST" String="Щёлкните левой кнопкой мыши, чтобы добавить в избранное, щёлкните правой кнопкой мыши, чтобы удалить из черного списка" />
-    <Translation ID="TOOLTIP_LOADFROMTHEME" String="Загрузить из темы карты" />
-    <Translation ID="TOOLTIP_RESET" String="Сброс до последней загрузки" />
-    <Translation ID="TOOLTIP_VALUE_GRASSDETAIL" String="Переключение 'декоративных' спрайтов травы" />
-    <Translation ID="TOOLTIP_VALUE_CLIFFDETAIL" String="Переключение 'декоративных' спрайтов камней" />
-    <Translation ID="TOOLTIP_VALUE_FERTILEDETAIL" String="Переключение 'декоративных' спрайтов плодородной почвы" />
-    <Translation ID="TOOLTIP_OPENCOLORPICKER" String="Открыть палитру цветов" />
-    <Translation ID="TOOLTIP_BUTTON_SAVE_MAXREACHED" String="Вы достигли максимального количества сохраненных цветов" />
-    <Translation ID="TOOLTIP_BUTTON_SAVE_COLOREXISTS" String="Выбранный цвет уже сохранен" />
-    <Translation ID="TOOLTIP_BUTTON_SAVE" String="Сохранить этот цвет" />
-    <Translation ID="TOOLTIP_USEASDEFAULT" String="Использовать этот микс по умолчанию, при загрузке новой карты" />
-    <Translation ID="TOOLTIP_DISABLECOMPILE" String="Some Mac systems do not support compilation for Theme Mixes. Enable this option if you get an error when trying to save a mix." />
-    <Translation ID="LABEL_SELECTLUT" String="Select LUT:" />
-    <Translation ID="LABEL_SELECTMIX" String="Выберите микс:" />
-    <Translation ID="LABEL_SAVEMIX" String="Сохранить микс" />
-    <Translation ID="LABEL_USEASDEFAULT" String="Использовать по умолчанию" />
-    <Translation ID="LABEL_DISABLECOMPILE" String="Disable compilation" />
-    <Translation ID="LABEL_NAME" String="Название" />
-    <Translation ID="LABEL_SUBSCRIBE_WARNING_TITLE" String="Game restart required!" />
-    <Translation ID="LABEL_SUBSCRIBE_WARNING_MESSAGE" String="Your themes are downloading, please quit the game, wait for themes to finish downloading, then re-start the game." />
-    <Translation ID="LABEL_BY" String="от" />
-    <Translation ID="LABEL_MIXES" String="Миксы" />
-    <Translation ID="LABEL_LUTS" String="Color Correction" />
-    <Translation ID="LABEL_THEME" String="Тему" />
-    <Translation ID="LABEL_TERRAIN" String="Поверхность" />
-    <Translation ID="LABEL_ATMOSPHERE" String="Атмосфера" />
-    <Translation ID="LABEL_WATER" String="Вода" />
-    <Translation ID="LABEL_WEATHER" String="Погода" />
-    <Translation ID="LABEL_STRUCTURES" String="Структуры" />
-    <Translation ID="LABEL_COLOR" String="Цвет" />
-    <Translation ID="LABEL_OFFSET" String="Смещение цвета" />
-    <Translation ID="LABEL_VALUE" String="Значение" />
-    <Translation ID="LABEL_TEXTURE" String="Текстура" />
-    <Translation ID="LABEL_SELECT" String="Выбрать" />
-    <Translation ID="LABEL_GRASS_DIFFUSE" String="Текстура травы" />
-    <Translation ID="LABEL_RUINED_DIFFUSE" String="Текстура стройки" />
-    <Translation ID="LABEL_PAVEMENT_DIFFUSE" String="Текстура мостовой" />
-    <Translation ID="LABEL_GRAVEL_DIFFUSE" String="Текстура гравия" />
-    <Translation ID="LABEL_CLIFF_DIFFUSE" String="Текстура скал. обрыва" />
-    <Translation ID="LABEL_SAND_DIFFUSE" String="Текстура песч. обрыва" />
-    <Translation ID="LABEL_OIL_DIFFUSE" String="Текстура залежей нефти" />
-    <Translation ID="LABEL_ORE_DIFFUSE" String="Текстура залежей руды" />
-    <Translation ID="LABEL_CLIFFSAND_NORMAL" String="Обычные скалы и песок" />
-    <Translation ID="LABEL_UPWARD_ROAD_DIFFUSE" String="Текстура проезж. части" />
-    <Translation ID="LABEL_DOWNWARD_ROAD_DIFFUSE" String="Текстура тротуара" />
-    <Translation ID="LABEL_BUILDING_FLOOR_DIFFUSE" String="Текстура пола здания" />
-    <Translation ID="LABEL_BUILDING_BASE_DIFFUSE" String="Текстура фундамента" />
-    <Translation ID="LABEL_BUILDING_BASE_NORMAL" String="Текстура стройплощадки" />
-    <Translation ID="LABEL_BUILDING_BURNT_DIFFUSE" String="Текстура пожарища" />
-    <Translation ID="LABEL_BUILDING_ABANDONED_DIFFUSE" String="Текстура заброш. здания" />
-    <Translation ID="LABEL_LIGHT_COLOR_PALETTE" String="Светлая палитра" />
-    <Translation ID="LABEL_MOON_DIFFUSE" String="Текстура Луны" />
-    <Translation ID="LABEL_WATER_FOAM" String="Водная пена" />
-    <Translation ID="LABEL_WATER_NORMAL" String="Спокойная вода" />
-    <Translation ID="LABEL_OFFSET_POLLUTION" String="Загрязнение" />
-    <Translation ID="LABEL_OFFSET_FERTILITY" String="Плодородная почва" />
-    <Translation ID="LABEL_OFFSET_FIELD" String="Поле" />
-    <Translation ID="LABEL_OFFSET_FOREST" String="Лес" />
-    <Translation ID="LABEL_TITLE_DETAIL" String="Декоративные спрайты" />
-    <Translation ID="LABEL_VALUE_GRASSDETAIL" String="Показать спрайты травы" />
-    <Translation ID="LABEL_VALUE_CLIFFDETAIL" String="Показать спрайты камней" />
-    <Translation ID="LABEL_VALUE_FERTILEDETAIL" String="Показать спрайты плодородной почвы" />
-    <Translation ID="LABEL_RED" String="R" />
-    <Translation ID="LABEL_GREEN" String="G" />
-    <Translation ID="LABEL_BLUE" String="B" />
-    <Translation ID="LABEL_NEW_SWATCH" String="Новый сохраненный цвет" />
-    <Translation ID="LABEL_MOONINNERCORONA" String="Яркость диска Луны" />
-    <Translation ID="LABEL_MOONOUTERCORONA" String="Яркость ореола Луны" />
-    <Translation ID="LABEL_SKYTINT" String="Цвет неба" />
-    <Translation ID="LABEL_NIGHTHORIZONCOLOR" String="Ночное небо" />
-    <Translation ID="LABEL_EARLYNIGHTZENITHCOLOR" String="Цвет неба при восходе" />
-    <Translation ID="LABEL_LATENIGHTZENITHCOLOR" String="Цвет неба на закате" />
-    <Translation ID="LABEL_WATERCLEAN" String="Вода" />
-    <Translation ID="LABEL_WATERDIRTY" String="Загрязнённая вода" />
-    <Translation ID="LABEL_WATERUNDER" String="Вода на глубине" />
-    <Translation ID="LABEL_VALUE_LONGITUDE" String="Долгота" />
-    <Translation ID="LABEL_VALUE_LATITUDE" String="Широта" />
-    <Translation ID="LABEL_VALUE_SUNSIZE" String="Размер Солнца" />
-    <Translation ID="LABEL_VALUE_SUNANISOTROPY" String="Солнечная анизотропия" />
-    <Translation ID="LABEL_VALUE_MOONSIZE" String="Размер Луны" />
-    <Translation ID="LABEL_VALUE_RAYLEIGH" String="Рэлеевское рассеяние" />
-    <Translation ID="LABEL_VALUE_MIE" String="Рассеяние Ми" />
-    <Translation ID="LABEL_VALUE_EXPOSURE" String="Воздействие" />
-    <Translation ID="LABEL_VALUE_STARSINTENSITY" String="Яркость звёзд" />
-    <Translation ID="LABEL_VALUE_OUTERSPACEINTENSITY" String="Яркость ночного неба" />
-    <Translation ID="LABEL_VALUE_MINTEMPERATUREDAY" String="Дневной минимум температуры" />
-    <Translation ID="LABEL_VALUE_MAXTEMPERATUREDAY" String="Дневной максимум температуры" />
-    <Translation ID="LABEL_VALUE_MINTEMPERATURENIGHT" String="Ночной минимум температуры" />
-    <Translation ID="LABEL_VALUE_MAXTEMPERATURENIGHT" String="Ночной максимум температуры" />
-    <Translation ID="LABEL_VALUE_MINTEMPERATURERAIN" String="Минимум температуры дождя" />
-    <Translation ID="LABEL_VALUE_MAXTEMPERATURERAIN" String="Максимум температуры дождя" />
-    <Translation ID="LABEL_VALUE_MINTEMPERATUREFOG" String="Минимум температуры тумана" />
-    <Translation ID="LABEL_VALUE_MAXTEMPERATUREFOG" String="Максимум температуры тумана" />
-    <Translation ID="LABEL_VALUE_RAINPROBABILITYDAY" String="Вероятность дождя днём" />
-    <Translation ID="LABEL_VALUE_RAINPROBABILITYNIGHT" String="Вероятность дождя ночью" />
-    <Translation ID="LABEL_VALUE_FOGPROBABILITYDAY" String="Вероятность тумана днём" />
-    <Translation ID="LABEL_VALUE_FOGPROBABILITYNIGHT" String="Вероятность тумана ночью" />
-    <Translation ID="LABEL_VALUE_NORTHERNLIGHTSPROBABILITY" String="Вероятность полярного сияния" />
-  </Translations>
+	<Translations>
+		<Translation ID="MOD_DESCRIPTION" String="Позволяеть загружать, комбинировать и настраивать темы карт" />
+		<Translation ID="BUTTON_OK" String="OK" />
+		<Translation ID="BUTTON_CLOSE" String="Закрыть" />
+		<Translation ID="BUTTON_SAVE" String="Сохранить" />
+		<Translation ID="BUTTON_SAVED" String="Сохранено!" />
+		<Translation ID="BUTTON_LOAD" String="Загрузить" />
+		<Translation ID="BUTTON_SUBSCRIBE" String="Подписаться" />
+		<Translation ID="TOOLTIP_BUTTON_SUBSCRIBE" String="Вам не хватает некоторых тем для этого микса, нажмите эту кнопку, чтобы подписаться на них сейчас. После этого перезапустите игру." />
+		<Translation ID="SETTINGS_DONATE_THEME_LABEL" String="Пожертвовать" />
+		<Translation ID="SETTINGS_SUPPORT_THEME_LABEL" String="Поддержка и помощь" />
+		<Translation ID="SETTINGS_INTERFACE_THEME_LABEL" String="Изменить цвет интерфейса" />
+		<Translation ID="TOOLTIP_THEMES" String="Темы" />
+		<Translation ID="TOOLTIP_TERRAIN" String="Поверхность" />
+		<Translation ID="TOOLTIP_WATER" String="Вода" />
+		<Translation ID="TOOLTIP_ATMOSPHERE" String="Атмосфера" />
+		<Translation ID="TOOLTIP_STRUCTURES" String="Структуры" />
+		<Translation ID="TOOLTIP_WEATHER" String="Погода" />
+		<Translation ID="TOOLTIP_MIXES" String="Миксы" />
+		<Translation ID="TOOLTIP_LUTS" String="Color Correction" />
+		<Translation ID="TOOLTIP_TILING" String="Текстурные части" />
+		<Translation ID="TOOLTIP_OFFSET" String="Смещение цвета" />
+		<Translation ID="TOOLTIP_ADDFAVOURITE_ADDBLACKLIST" String="Щёлкните левой кнопкой мыши, чтобы добавить в избранное, щёлкните правой кнопкой мыши, чтобы добавить в чёрный список" />
+		<Translation ID="TOOLTIP_REMOVEFAVOURITE" String="Щёлкните левой кнопкой мыши, чтобы удалить из избранного, щёлкните правой кнопкой мыши, чтобы добавить в чёрный список" />
+		<Translation ID="TOOLTIP_REMOVEBLACKLIST" String="Щёлкните левой кнопкой мыши, чтобы добавить в избранное, щёлкните правой кнопкой мыши, чтобы удалить из черного списка" />
+		<Translation ID="TOOLTIP_LOADFROMTHEME" String="Загрузить из темы карты" />
+		<Translation ID="TOOLTIP_RESET" String="Сброс до последней загрузки" />
+		<Translation ID="TOOLTIP_VALUE_GRASSDETAIL" String="Переключение 'декоративных' спрайтов травы" />
+		<Translation ID="TOOLTIP_VALUE_CLIFFDETAIL" String="Переключение 'декоративных' спрайтов камней" />
+		<Translation ID="TOOLTIP_VALUE_FERTILEDETAIL" String="Переключение 'декоративных' спрайтов плодородной почвы" />
+		<Translation ID="TOOLTIP_OPENCOLORPICKER" String="Открыть палитру цветов" />
+		<Translation ID="TOOLTIP_BUTTON_SAVE_MAXREACHED" String="Вы достигли максимального количества сохраненных цветов" />
+		<Translation ID="TOOLTIP_BUTTON_SAVE_COLOREXISTS" String="Выбранный цвет уже сохранен" />
+		<Translation ID="TOOLTIP_BUTTON_SAVE" String="Сохранить этот цвет" />
+		<Translation ID="TOOLTIP_USEASDEFAULT" String="Использовать этот микс по умолчанию, при загрузке новой карты" />
+		<Translation ID="TOOLTIP_DISABLECOMPILE" String="Some Mac systems do not support compilation for Theme Mixes. Enable this option if you get an error when trying to save a mix." />
+		<Translation ID="LABEL_SELECTLUT" String="Select LUT:" />
+		<Translation ID="LABEL_SELECTMIX" String="Выберите микс:" />
+		<Translation ID="LABEL_SAVEMIX" String="Сохранить микс" />
+		<Translation ID="LABEL_USEASDEFAULT" String="Использовать по умолчанию" />
+		<Translation ID="LABEL_DISABLECOMPILE" String="Disable compilation" />
+		<Translation ID="LABEL_NAME" String="Название" />
+		<Translation ID="LABEL_SUBSCRIBE_WARNING_TITLE" String="Game restart required!" />
+		<Translation ID="LABEL_SUBSCRIBE_WARNING_MESSAGE" String="Your themes are downloading, please quit the game, wait for themes to finish downloading, then re-start the game." />
+		<Translation ID="LABEL_BY" String="от" />
+		<Translation ID="LABEL_MIXES" String="Миксы" />
+		<Translation ID="LABEL_LUTS" String="Color Correction" />
+		<Translation ID="LABEL_THEME" String="Тему" />
+		<Translation ID="LABEL_TERRAIN" String="Поверхность" />
+		<Translation ID="LABEL_ATMOSPHERE" String="Атмосфера" />
+		<Translation ID="LABEL_WATER" String="Вода" />
+		<Translation ID="LABEL_WEATHER" String="Погода" />
+		<Translation ID="LABEL_STRUCTURES" String="Структуры" />
+		<Translation ID="LABEL_COLOR" String="Цвет" />
+		<Translation ID="LABEL_OFFSET" String="Смещение цвета" />
+		<Translation ID="LABEL_VALUE" String="Значение" />
+		<Translation ID="LABEL_TEXTURE" String="Текстура" />
+		<Translation ID="LABEL_SELECT" String="Выбрать" />
+		<Translation ID="LABEL_GRASS_DIFFUSE" String="Текстура травы" />
+		<Translation ID="LABEL_RUINED_DIFFUSE" String="Текстура стройки" />
+		<Translation ID="LABEL_PAVEMENT_DIFFUSE" String="Текстура мостовой" />
+		<Translation ID="LABEL_GRAVEL_DIFFUSE" String="Текстура гравия" />
+		<Translation ID="LABEL_CLIFF_DIFFUSE" String="Текстура скал. обрыва" />
+		<Translation ID="LABEL_SAND_DIFFUSE" String="Текстура песч. обрыва" />
+		<Translation ID="LABEL_OIL_DIFFUSE" String="Текстура залежей нефти" />
+		<Translation ID="LABEL_ORE_DIFFUSE" String="Текстура залежей руды" />
+		<Translation ID="LABEL_CLIFFSAND_NORMAL" String="Обычные скалы и песок" />
+		<Translation ID="LABEL_UPWARD_ROAD_DIFFUSE" String="Текстура проезж. части" />
+		<Translation ID="LABEL_DOWNWARD_ROAD_DIFFUSE" String="Текстура тротуара" />
+		<Translation ID="LABEL_BUILDING_FLOOR_DIFFUSE" String="Текстура пола здания" />
+		<Translation ID="LABEL_BUILDING_BASE_DIFFUSE" String="Текстура фундамента" />
+		<Translation ID="LABEL_BUILDING_BASE_NORMAL" String="Текстура стройплощадки" />
+		<Translation ID="LABEL_BUILDING_BURNT_DIFFUSE" String="Текстура пожарища" />
+		<Translation ID="LABEL_BUILDING_ABANDONED_DIFFUSE" String="Текстура заброш. здания" />
+		<Translation ID="LABEL_LIGHT_COLOR_PALETTE" String="Светлая палитра" />
+		<Translation ID="LABEL_MOON_DIFFUSE" String="Текстура Луны" />
+		<Translation ID="LABEL_WATER_FOAM" String="Водная пена" />
+		<Translation ID="LABEL_WATER_NORMAL" String="Спокойная вода" />
+		<Translation ID="LABEL_OFFSET_POLLUTION" String="Загрязнение" />
+		<Translation ID="LABEL_OFFSET_FERTILITY" String="Плодородная почва" />
+		<Translation ID="LABEL_OFFSET_FIELD" String="Поле" />
+		<Translation ID="LABEL_OFFSET_FOREST" String="Лес" />
+		<Translation ID="LABEL_TITLE_DETAIL" String="Декоративные спрайты" />
+		<Translation ID="LABEL_VALUE_GRASSDETAIL" String="Показать спрайты травы" />
+		<Translation ID="LABEL_VALUE_CLIFFDETAIL" String="Показать спрайты камней" />
+		<Translation ID="LABEL_VALUE_FERTILEDETAIL" String="Показать спрайты плодородной почвы" />
+		<Translation ID="LABEL_RED" String="R" />
+		<Translation ID="LABEL_GREEN" String="G" />
+		<Translation ID="LABEL_BLUE" String="B" />
+		<Translation ID="LABEL_NEW_SWATCH" String="Новый сохраненный цвет" />
+		<Translation ID="LABEL_MOONINNERCORONA" String="Яркость диска Луны" />
+		<Translation ID="LABEL_MOONOUTERCORONA" String="Яркость ореола Луны" />
+		<Translation ID="LABEL_SKYTINT" String="Цвет неба" />
+		<Translation ID="LABEL_NIGHTHORIZONCOLOR" String="Ночное небо" />
+		<Translation ID="LABEL_EARLYNIGHTZENITHCOLOR" String="Цвет неба при восходе" />
+		<Translation ID="LABEL_LATENIGHTZENITHCOLOR" String="Цвет неба на закате" />
+		<Translation ID="LABEL_WATERCLEAN" String="Вода" />
+		<Translation ID="LABEL_WATERDIRTY" String="Загрязнённая вода" />
+		<Translation ID="LABEL_WATERUNDER" String="Вода на глубине" />
+		<Translation ID="LABEL_VALUE_LONGITUDE" String="Долгота" />
+		<Translation ID="LABEL_VALUE_LATITUDE" String="Широта" />
+		<Translation ID="LABEL_VALUE_SUNSIZE" String="Размер Солнца" />
+		<Translation ID="LABEL_VALUE_SUNANISOTROPY" String="Солнечная анизотропия" />
+		<Translation ID="LABEL_VALUE_MOONSIZE" String="Размер Луны" />
+		<Translation ID="LABEL_VALUE_RAYLEIGH" String="Рэлеевское рассеяние" />
+		<Translation ID="LABEL_VALUE_MIE" String="Рассеяние Ми" />
+		<Translation ID="LABEL_VALUE_EXPOSURE" String="Воздействие" />
+		<Translation ID="LABEL_VALUE_STARSINTENSITY" String="Яркость звёзд" />
+		<Translation ID="LABEL_VALUE_OUTERSPACEINTENSITY" String="Яркость ночного неба" />
+		<Translation ID="LABEL_VALUE_MINTEMPERATUREDAY" String="Дневной минимум температуры" />
+		<Translation ID="LABEL_VALUE_MAXTEMPERATUREDAY" String="Дневной максимум температуры" />
+		<Translation ID="LABEL_VALUE_MINTEMPERATURENIGHT" String="Ночной минимум температуры" />
+		<Translation ID="LABEL_VALUE_MAXTEMPERATURENIGHT" String="Ночной максимум температуры" />
+		<Translation ID="LABEL_VALUE_MINTEMPERATURERAIN" String="Минимум температуры дождя" />
+		<Translation ID="LABEL_VALUE_MAXTEMPERATURERAIN" String="Максимум температуры дождя" />
+		<Translation ID="LABEL_VALUE_MINTEMPERATUREFOG" String="Минимум температуры тумана" />
+		<Translation ID="LABEL_VALUE_MAXTEMPERATUREFOG" String="Максимум температуры тумана" />
+		<Translation ID="LABEL_VALUE_RAINPROBABILITYDAY" String="Вероятность дождя днём" />
+		<Translation ID="LABEL_VALUE_RAINPROBABILITYNIGHT" String="Вероятность дождя ночью" />
+		<Translation ID="LABEL_VALUE_FOGPROBABILITYDAY" String="Вероятность тумана днём" />
+		<Translation ID="LABEL_VALUE_FOGPROBABILITYNIGHT" String="Вероятность тумана ночью" />
+		<Translation ID="LABEL_VALUE_NORTHERNLIGHTSPROBABILITY" String="Вероятность полярного сияния" />
+	</Translations>
 </Language>
