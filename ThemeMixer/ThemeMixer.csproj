@@ -85,10 +85,16 @@
 		<Reference Include="Assembly-CSharp" />
 		<Reference Include="ColossalManaged" />
 		<Reference Include="ICities" />
+		<Reference Include="System.Configuration">
+		  <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\System.Configuration.dll</HintPath>
+		</Reference>
 		<Reference Include="UltimateEyecandy">
-		  <HintPath>..\..\ThemeMixer-masterUXUITESTING\ThemeMixer-master\ThemeMixer-master\UltimateEyecandy.dll</HintPath>
+		  <HintPath>..\UltimateEyecandy.dll</HintPath>
 		</Reference>
 		<Reference Include="UnityEngine" />
+		<Reference Include="UnityEngine.UI">
+		  <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.UI.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 	<ItemGroup>
 		<_Locales Include="$(ProjectDir)/Locale/*.xml" />

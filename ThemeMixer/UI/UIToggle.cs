@@ -24,7 +24,7 @@ namespace ThemeMixer.UI
             absolutePosition = SerializationService.Instance.GetUITogglePosition() ?? GetDefaultPosition();
         }
 
-        private Vector2 GetDefaultPosition()
+        public Vector2 GetDefaultPosition()
         {
             UIComponent referenceComponent = GetUIView().FindUIComponent<UIComponent>("UnlockButton");
             Vector2 pos = new Vector2(referenceComponent.absolutePosition.x + 80.0f, referenceComponent.absolutePosition.y + (referenceComponent.height - height) / 2);
