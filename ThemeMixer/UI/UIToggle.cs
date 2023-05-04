@@ -9,6 +9,9 @@ namespace ThemeMixer.UI
     {
         public delegate void UIToggleClickedEventHandler();
         public event UIToggleClickedEventHandler EventUIToggleClicked;
+        public KeyCode _hotkey = KeyCode.F;
+
+
 
         private bool _toggled;
         private Vector3 DeltaPos { get; set; }
@@ -38,6 +41,23 @@ namespace ThemeMixer.UI
             EventUIToggleClicked?.Invoke();
             normalBgSprite = _toggled ? UISprites.UIToggleIconFocused : UISprites.UIToggleIcon;
         }
+
+
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (Input.GetKeyDown(_hotkey))
+            {
+                Debug.Log("Hotkey pressed: " + _hotkey);
+                EventUIToggleClicked?.Invoke();
+                _toggled = !_toggled;
+                normalBgSprite = _toggled ? UISprites.UIToggleIconFocused : UISprites.UIToggleIcon;
+            }
+        }
+
+
 
         protected override void OnMouseDown(UIMouseEventParameter p)
         {

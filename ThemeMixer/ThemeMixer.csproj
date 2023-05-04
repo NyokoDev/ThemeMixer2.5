@@ -76,7 +76,7 @@
 		<EmbeddedResource Include="Resources\Files\WeatherIconFocused.png" />
 		<EmbeddedResource Include="Resources\Files\WeatherIconHovered.png" />
 		<EmbeddedResource Include="Resources\Files\WeatherIconPressed.png" />
-		<EmbeddedResource Include="UI\BackgroundImage.png" />
+		<EmbeddedResource Include="UI\BCK.png" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="CitiesHarmony.API" Version="2.2.0" />
@@ -102,7 +102,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Remove="Locale\spanish.xml" />
-	  <None Remove="UI\BackgroundImage.png" />
+	  <None Remove="UI\BCK.png" />
 	</ItemGroup>
 	<ItemGroup>
 	  <_Locales Remove="Locale\spanish.xml" />

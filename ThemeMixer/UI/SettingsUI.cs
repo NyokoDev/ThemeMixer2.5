@@ -19,7 +19,7 @@ namespace TM {
         public void OnSettingsUI(UIHelperBase helper) {
             var panel = (helper.AddGroup("Theme Mixer 2.5") as UIHelper).self as UIPanel;
             panel.atlas = TM2Atlas.TMAtlas;
-            panel.backgroundSprite = TM2Atlas.BackgroundImage;
+            panel.backgroundSprite = TM2Atlas.BCK;
             //Set what you wanna size.
             panel.size = new Vector2();
             var dropDown = AddDropDown(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_INTERFACE_THEME_LABEL), new string[] { "Purple", "Dark Blue", "Red", "Light Blue", "Default" }, 0, (_) => {
@@ -46,6 +46,40 @@ namespace TM {
                 ColorData.Save(); // Save the selected color to storage
             });
 
+            var dropDown2 = AddDropDown(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_INTERFACE_HOTKEY_LABEL),
+    new string[] { "Ctrl+Alt+Z", "Ctrl+Shift+C", "Alt+X", "Ctrl+Shift+V", "Ctrl+Alt+Shift+D" }, 0, (_) =>
+    {
+        // Find the UIToggle component you want to change
+        UIToggle toggle = UnityEngine.Object.FindObjectOfType<UIToggle>();
+
+        // Set the hotkey to the desired KeyCode based on the selected option from the dropdown
+        if (_ == 0)
+        {
+            toggle._hotkey = KeyCode.LeftAlt | KeyCode.LeftControl | KeyCode.Z;
+        }
+        else if (_ == 1)
+        {
+            toggle._hotkey = KeyCode.LeftControl | KeyCode.LeftShift | KeyCode.C;
+        }
+        else if (_ == 2)
+        {
+            toggle._hotkey = KeyCode.LeftAlt | KeyCode.X;
+        }
+        else if (_ == 3)
+        {
+            toggle._hotkey = KeyCode.LeftShift | KeyCode.LeftControl | KeyCode.V;
+        }
+        else if (_ == 4)
+        {
+            toggle._hotkey = KeyCode.LeftAlt | KeyCode.LeftControl | KeyCode.LeftShift | KeyCode.D;
+        }
+
+        Debug.Log("Hotkey changed to " + toggle._hotkey);
+    });
+
+
+
+
 
 
 
@@ -69,13 +103,6 @@ namespace TM {
             });
 
             resetButton.relativePosition = new Vector2(50, resetButton.relativePosition.y + resetButton.size.y + 10);
-
-
-
-
-
-
-
         }
 
 
@@ -110,9 +137,9 @@ namespace TM {
     internal class TM2Atlas {
         private static UITextureAtlas tMAtlas;
         public static Dictionary<string, RectOffset> SpriteParams { get; private set; } = new Dictionary<string, RectOffset>();
-        public static string BackgroundImage => nameof(BackgroundImage);
+        public static string BCK => nameof(BCK);
         //Your image name, also included in you project.
-        static TM2Atlas() => SpriteParams[BackgroundImage] = new RectOffset(4, 4, 4, 4);
+        static TM2Atlas() => SpriteParams[BCK] = new RectOffset(4, 4, 4, 4);
         //Atlas what we create.
         public static UITextureAtlas TMAtlas {
             get {
