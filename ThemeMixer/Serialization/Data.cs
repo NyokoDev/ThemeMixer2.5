@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ThemeMixer.Serialization
 {
-    [XmlRoot("TMixer_Settings_2.5.xml")]
+    [XmlRoot("ThemeMixerSettings.xml")]
     public class Data
     {
         public string DefaultMix { get; set; }

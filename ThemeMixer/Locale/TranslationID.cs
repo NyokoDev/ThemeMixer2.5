@@ -15,7 +15,11 @@ namespace ThemeMixer.Locale
         public const string BUTTON_SAVED = "BUTTON_SAVED";
 
         public const string TOOLTIP_BUTTON_SUBSCRIBE = "TOOLTIP_BUTTON_SUBSCRIBE";
-        public const string SETTINGS_THEME_LABEL = "SETTINGS_THEME_LABEL";
+        public const string SETTINGS_DONATE_THEME_LABEL = "SETTINGS_DONATE_THEME_LABEL";
+        public const string SETTINGS_SUPPORT_THEME_LABEL = "SETTINGS_SUPPORT_THEME_LABEL";
+        public const string SETTINGS_INTERFACE_THEME_LABEL = "SETTINGS_INTERFACE_THEME_LABEL";
+        public const string RESET_UI_TOGGLE_LABEL = "RESET_UI_TOGGLE_LABEL";
+        public const string SETTINGS_INTERFACE_HOTKEY_LABEL = "SETTINGS_INTERFACE_HOTKEY_LABEL";
         public const string TOOLTIP_THEMES = "TOOLTIP_THEMES";
         public const string TOOLTIP_TERRAIN = "TOOLTIP_TERRAIN";
         public const string TOOLTIP_WATER = "TOOLTIP_WATER";
