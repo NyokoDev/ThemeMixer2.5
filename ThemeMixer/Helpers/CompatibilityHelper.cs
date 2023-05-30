@@ -92,20 +92,8 @@ namespace ThemeMixer.Helpers
             // Code to show the exception panel explaining the compatibility issue
             // You can customize this method to display the panel in your game's UI
             // Customize the appearance of the ExceptionPanel
-            UIPanel exceptionPanel = UIView.library.ShowModal<UIPanel>("ExceptionPanel") as UIPanel;
-            exceptionPanel.SendMessage("Theme Mixer 2 and 2.5 cannot be used together.", "Please remove either Theme Mixer 2 or 2.5 to avoid compatibility issues.");
-
-            // Example customization:
-            exceptionPanel.backgroundSprite = "GenericPanel";
-            exceptionPanel.color = new Color32(0, 0, 0, 200);
-            exceptionPanel.width = 500f;
-            exceptionPanel.height = 250f;
-            exceptionPanel.relativePosition = new Vector3(500f, 300f);
-            exceptionPanel.Find<UILabel>("ExceptionTitle").textColor = Color.red;
-            exceptionPanel.Find<UILabel>("ExceptionMessage").textColor = Color.white;
-            exceptionPanel.Find<UILabel>("ExceptionMessage").wordWrap = true;
-            exceptionPanel.AttachUIComponent(exceptionPanel.Find<UILabel>("ExceptionMessage").gameObject);
-
+            ExceptionPanel panel = UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel");
+            panel.SetMessage("Theme Mixer 2.5", "Compatibility issue: Theme Mixer 2 is not compatible with Theme Mixer 2.5. Please uninstall one version and restart the game.", false);
 
         }
 
