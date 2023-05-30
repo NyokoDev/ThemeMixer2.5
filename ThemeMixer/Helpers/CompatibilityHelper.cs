@@ -2,66 +2,90 @@
 using ColossalFramework.UI;
 using ThemeMixer.ModUtils;
 using UnityEngine;
+using System.Runtime.InteropServices;
+using System.IO;
 
 namespace ThemeMixer.Helpers
 {
     public static class CompatibilityHelper
     {
-        public static readonly string[] LIGHT_COLORS_MANIPULATING_MODS = { "lightingrebalance", "daylightclassic", "softershadows" };
-
-        public static readonly string[] THEME_MIXER_2_MODS = { "thememixer 2" };
-
-        public static readonly string[] THEME_MIXER_2_5_MODS = { "thememixer 2.5" };
-
-        public static readonly string[] FOG_MANIPULATING_MODS = { "fogcontroller", "fogoptions", "daylightclassic" };
-
-        public static readonly string[] REQUIRED_MODS = { "Render It!" };
-
         public static bool IsAnyLightColorsManipulatingModsEnabled()
         {
-            if (ModChecker.IsAnyModsEnabled(LIGHT_COLORS_MANIPULATING_MODS))
+            string[] modDirectories = GetModDirectories();
+            foreach (string directory in modDirectories)
             {
-                return true;
+                if (IsAnyModDllExistsInDirectory(directory, new string[] { "lightingrebalance", "daylightclassic", "softershadows" }))
+                {
+                    return true;
+                }
             }
-
             return false;
         }
 
         public static bool IsAnySkyManipulatingModsEnabled()
         {
-            if (ModChecker.IsAnyModsEnabled(THEME_MIXER_2_MODS) && ModChecker.IsAnyModsEnabled(THEME_MIXER_2_5_MODS))
+            string[] modDirectories = GetModDirectories();
+            foreach (string directory in modDirectories)
             {
-                ShowThemeMixerCompatibilityExceptionPanel();
-                return false;
-            }
+                if (IsAnyModDllExistsInDirectory(directory, new string[] { "thememixer 2" }) && IsAnyModDllExistsInDirectory(directory, new string[] { "thememixer 2.5" }))
+                {
+                    ShowThemeMixerCompatibilityExceptionPanel();
+                    return false;
+                }
 
-            if (ModChecker.IsAnyModsEnabled(THEME_MIXER_2_5_MODS))
-            {
-                return true;
+                if (IsAnyModDllExistsInDirectory(directory, new string[] { "thememixer 2.5" }))
+                {
+                    return true;
+                }
             }
-
             return false;
         }
 
         public static bool IsAnyFogManipulatingModsEnabled()
         {
-            if (ModChecker.IsAnyModsEnabled(FOG_MANIPULATING_MODS))
+            string[] modDirectories = GetModDirectories();
+            foreach (string directory in modDirectories)
             {
-                return true;
+                if (IsAnyModDllExistsInDirectory(directory, new string[] { "fogcontroller", "fogoptions", "daylightclassic" }))
+                {
+                    return true;
+                }
             }
-
             return false;
         }
 
         public static bool IsRenderItEnabled()
         {
-            if (ModChecker.IsModEnabled("Render It!"))
-            {
-                return true;
-            }
+            return ModChecker.IsModEnabled("Render It!");
+        }
 
+        private static string[] GetModDirectories()
+        {
+            string localAppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string modsPath = localAppDataPath + @"\Colossal Order\Cities_Skylines\Addons\Mods";
+            string steamModsPath = Path.Combine(GetSteamDirectory(), "steamapps");
+
+            return new string[] { modsPath, steamModsPath };
+        }
+
+        private static bool IsAnyModDllExistsInDirectory(string directory, string[] modNames)
+        {
+            if (System.IO.Directory.Exists(directory))
+            {
+                foreach (string modName in modNames)
+                {
+                    string modPath = System.IO.Path.Combine(directory, modName + ".dll");
+                    if (System.IO.File.Exists(modPath))
+                    {
+                        return true;
+                    }
+                }
+            }
             return false;
         }
+
+
+
 
         private static void ShowThemeMixerCompatibilityExceptionPanel()
         {
@@ -83,6 +107,46 @@ namespace ThemeMixer.Helpers
             exceptionPanel.AttachUIComponent(exceptionPanel.Find<UILabel>("ExceptionMessage").gameObject);
 
 
+        }
+
+
+        private static string GetSteamDirectory()
+        {
+            string operatingSystem = Environment.OSVersion.Platform.ToString().ToLower();
+
+            switch (operatingSystem)
+            {
+                case "win32nt":
+                case "win32s":
+                case "win32windows":
+                case "win64nt":
+                    return GetWindowsSteamDirectory();
+
+                case "darwin":
+                    return GetMacSteamDirectory();
+
+                case "unix":
+                    return GetLinuxSteamDirectory();
+
+                default:
+                    throw new PlatformNotSupportedException("Operating system not supported.");
+            }
+        }
+
+        private static string GetWindowsSteamDirectory()
+        {
+            string programFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            return Path.Combine(programFiles, "Steam");
+        }
+
+        private static string GetMacSteamDirectory()
+        {
+            return "/Applications/Steam.app/Contents/MacOS";
+        }
+
+        private static string GetLinuxSteamDirectory()
+        {
+            return "~/.steam/steam";
         }
     }
 }
