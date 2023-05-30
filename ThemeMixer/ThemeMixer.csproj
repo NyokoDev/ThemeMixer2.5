@@ -5,7 +5,7 @@
 		<AssemblyTitle>$(Title)</AssemblyTitle>
 		<Copyright>Copyright © 2023</Copyright>
 		<Product>$(Title)</Product>
-		<Version>1.0</Version>
+		<Version>2510</Version>
 		<ManagedDLLPath>$(MSBuildProgramFiles32)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed</ManagedDLLPath>
 		<UEPath>$(MSBuildProgramFiles32)/Steam/steamapps/workshop/content/255710/672248733</UEPath>
 		<AssemblySearchPaths>
