@@ -264,7 +264,10 @@ namespace ThemeMixer.Serialization
 
             // Force manual compilation of source at controlled time.
             // Only specify ICities.dll as additional assembly to avoid 'file not found' errors with m_additionalAssembly empty strings.
-            PluginManager.CompileSourceInFolder(mixModSourceDir, mixDir, new string[] { typeof(ICities.IUserMod).Assembly.Location });
+            if (!Data.DisableCompile && Application.platform != RuntimePlatform.OSXPlayer)
+            {
+                PluginManager.CompileSourceInFolder(mixModSourceDir, mixDir, new string[] { typeof(ICities.IUserMod).Assembly.Location });
+            }
 
             // Delete source once we've compiled; this prevents redundant (and error-prone) re-compiliation attempts on future game loads.
             Debug.Log("Theme Mixer: deleting source files at " + mixModSourceDir);
