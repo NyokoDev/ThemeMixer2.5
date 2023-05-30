@@ -6,6 +6,7 @@
 		<Translation ID="BUTTON_CLOSE" String="Fermer" />
 		<Translation ID="BUTTON_SAVE" String="Sauvegarder" />
 		<Translation ID="BUTTON_SAVED" String="Sauvegardé !" />
+		<Translation ID="SETTINGS_OPEN_KEY_CONFIG_LABEL" String="Open Key Configuration File" />
 		<Translation ID="BUTTON_LOAD" String="Charger" />
 		<Translation ID="BUTTON_SUBSCRIBE" String="Souscrire" />
 		<Translation ID="TOOLTIP_BUTTON_SUBSCRIBE" String="Il vous manque certains thèmes de ce mix, appuyez sur ce bouton pour vous y abonner maintenant. Les thèmes seront disponibles la prochaine fois que vous lancerez le jeu." />

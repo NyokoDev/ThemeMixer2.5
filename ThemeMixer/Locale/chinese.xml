@@ -6,6 +6,7 @@
 		<Translation ID="BUTTON_CLOSE" String="关闭" />
 		<Translation ID="BUTTON_SAVE" String="保存" />
 		<Translation ID="BUTTON_SAVED" String="已保存!" />
+		<Translation ID="SETTINGS_OPEN_KEY_CONFIG_LABEL" String="打开密钥配置文件" />
 		<Translation ID="BUTTON_LOAD" String="加载" />
 		<Translation ID="BUTTON_SUBSCRIBE" String="订阅" />
 		<Translation ID="TOOLTIP_BUTTON_SUBSCRIBE" String="您缺少此组合中的某些主题，请按此按钮立即订阅。 建议您在之后重新启动游戏." />

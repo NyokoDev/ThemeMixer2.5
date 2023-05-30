@@ -6,6 +6,7 @@
     <Translation ID="BUTTON_CLOSE" String="閉じる"/>
     <Translation ID="BUTTON_SAVE" String="セーブ"/>
     <Translation ID="BUTTON_SAVED" String="セーブしました"/>
+	<Translation ID="SETTINGS_OPEN_KEY_CONFIG_LABEL" String="キー設定ファイルを開く" />
     <Translation ID="BUTTON_LOAD" String="ロード"/>
     <Translation ID="BUTTON_SUBSCRIBE" String="サブスク"/>
     <Translation ID="TOOLTIP_BUTTON_SUBSCRIBE" String="テーマをミックスするには、マップテーマが足りません。ボタンを押してサブスクしましょう。マップテーマはゲームを再起動しないと利用できません。"/>

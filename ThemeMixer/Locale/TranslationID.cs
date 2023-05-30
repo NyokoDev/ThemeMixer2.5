@@ -13,6 +13,7 @@ namespace ThemeMixer.Locale
         public const string BUTTON_LOAD = "BUTTON_LOAD";
         public const string BUTTON_SUBSCRIBE = "BUTTON_SUBSCRIBE";
         public const string BUTTON_SAVED = "BUTTON_SAVED";
+        public const string SETTINGS_OPEN_KEY_CONFIG_LABEL = "SETTINGS_OPEN_KEY_CONFIG_LABEL";
 
         public const string TOOLTIP_BUTTON_SUBSCRIBE = "TOOLTIP_BUTTON_SUBSCRIBE";
         public const string SETTINGS_DONATE_THEME_LABEL = "SETTINGS_DONATE_THEME_LABEL";

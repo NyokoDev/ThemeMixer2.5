@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using ColossalFramework.UI;
 using ICities;
@@ -50,7 +51,7 @@ namespace TM
 
             // Add the dropdown to the panel
             var dropDown2 = AddDropDown(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_INTERFACE_HOTKEY_LABEL),
-   new string[] { UIToggle.referenceHotkey, "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Insert", "Delete", "Home", "Page Up", "Page Down", "End", "Left Shift", "Right Shift" }, 0, (_) =>
+   new string[] { "None", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Insert", "Delete", "Home", "Page Up", "Page Down", "End", "Left Shift", "Right Shift" }, 0, (_) =>
    {
        // Find the UIToggle component you want to change
        UIToggle toggle3 = UnityEngine.Object.FindObjectOfType<UIToggle>();
@@ -58,7 +59,7 @@ namespace TM
        // Set the hotkey to the desired KeyCode based on the selected option from the dropdown
        if (_ == 0)
        {
-           toggle3._hotkey = toggle3._hotkey;
+           toggle3._hotkey = KeyCode.None;
        }
        else if (_ == 1)
        {
@@ -141,20 +142,13 @@ namespace TM
            toggle3._hotkey = KeyCode.RightShift;
        }
 
-       Debug.Log("Hotkey changed to " + toggle3._hotkey);
+       UnityEngine.Debug.Log("Hotkey changed to " + toggle3._hotkey);
    });
-
-
-
-
 
             dropDown.relativePosition = new Vector2(10, 10);
 
             var donateButton = AddButton(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_DONATE_THEME_LABEL), () => Application.OpenURL("https://www.paypal.com/donate/?hosted_button_id=DZYTC3AEG85V8"));
-            donateButton.relativePosition = new Vector2(50, 80);
-            var supportButton = AddButton(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_SUPPORT_THEME_LABEL), () => Application.OpenURL("https://steamcommunity.com/workshop/filedetails/discussion/2954236385/3819655917505218354/"));
-            supportButton.relativePosition = new Vector2(50, donateButton.relativePosition.y + donateButton.size.y + 10);
-            // Create a reset button that sets the UIToggle position to the default position
+            donateButton.relativePosition = new Vector2(50, 140);
 
             var resetButton = AddButton(panel, Translation.Instance.GetTranslation(TranslationID.RESET_UI_TOGGLE_LABEL), () =>
             {
@@ -164,8 +158,27 @@ namespace TM
                 // Get the default position for the UIToggle from the instance
                 var defaultPosition = toggle.GetDefaultPosition();
             });
+            resetButton.relativePosition = new Vector2(50, donateButton.relativePosition.y + donateButton.size.y + 10);
 
-            resetButton.relativePosition = new Vector2(50, resetButton.relativePosition.y + resetButton.size.y + 10);
+            string appDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TM2.5_key_config.txt");
+
+            var openKeyConfigButton = AddButton(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_OPEN_KEY_CONFIG_LABEL), () =>
+            {
+                if (File.Exists(appDataPath))
+                {
+                    Process.Start(appDataPath);
+                }
+                else
+                {
+                    UnityEngine.Debug.LogError("The TM2.5_key_config.txt file does not exist.");
+                }
+            });
+
+            openKeyConfigButton.relativePosition = new Vector2(50, donateButton.relativePosition.y);
+
+            var supportButton = AddButton(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_SUPPORT_THEME_LABEL), () => Application.OpenURL("https://steamcommunity.com/workshop/filedetails/discussion/2954236385/3819655917505218354/"));
+            supportButton.relativePosition = new Vector2(50, donateButton.relativePosition.y + donateButton.size.y + 10);
+
         }
 
         private void SaveHotkeyToFile(string hotkey)
@@ -187,9 +200,9 @@ namespace TM
             File.WriteAllText(filePath, hotkey);
 
             // Show the exception panel to inform the user about the hotkey change
-            
 
-            Debug.Log("Hotkey changed to " + hotkey);
+
+            UnityEngine.Debug.Log("Hotkey changed to " + hotkey);
         }
 
         private static UIButton AddButton(UIComponent parent, string text, Action callback)

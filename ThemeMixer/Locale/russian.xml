@@ -6,6 +6,7 @@
 		<Translation ID="BUTTON_CLOSE" String="Закрыть" />
 		<Translation ID="BUTTON_SAVE" String="Сохранить" />
 		<Translation ID="BUTTON_SAVED" String="Сохранено!" />
+		<Translation ID="SETTINGS_OPEN_KEY_CONFIG_LABEL" String="Открыть файл конфигурации ключей" />
 		<Translation ID="BUTTON_LOAD" String="Загрузить" />
 		<Translation ID="BUTTON_SUBSCRIBE" String="Подписаться" />
 		<Translation ID="TOOLTIP_BUTTON_SUBSCRIBE" String="Вам не хватает некоторых тем для этого микса, нажмите эту кнопку, чтобы подписаться на них сейчас. После этого перезапустите игру." />

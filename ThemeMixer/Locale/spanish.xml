@@ -6,6 +6,7 @@
 		<Translation ID="BUTTON_CLOSE" String="Cerrar" />
 		<Translation ID="BUTTON_SAVE" String="Guardar" />
 		<Translation ID="BUTTON_SAVED" String="Guardado!" />
+		<Translation ID="SETTINGS_OPEN_KEY_CONFIG_LABEL" String="Abrir configuración de teclas de acceso rápido" />
 		<Translation ID="BUTTON_LOAD" String="Cargar" />
 		<Translation ID="BUTTON_SUBSCRIBE" String="Suscribirse" />
 		<Translation ID="TOOLTIP_BUTTON_SUBSCRIBE" String="Faltan algunos temas para esta combinación, haga clic en este botón para suscribirse a ellos ahora. Luego reinicie el juego." />
