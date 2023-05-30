@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using TM.Utils;
+﻿using TM.Utils;
+using UnityEngine;
 
 namespace ThemeMixer.Resources
 {

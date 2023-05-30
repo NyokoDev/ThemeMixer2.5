@@ -12,6 +12,8 @@
 		<Translation ID="SETTINGS_DONATE_THEME_LABEL" String="Donar" />
 		<Translation ID="SETTINGS_SUPPORT_THEME_LABEL" String="Apoyo y ayuda" />
 		<Translation ID="SETTINGS_INTERFACE_THEME_LABEL" String="Cambiar el color de la interfaz" />
+		<Translation ID="RESET_UI_TOGGLE_LABEL" String="Reiniciar la posición del botón." />
+		<Translation ID="SETTINGS_INTERFACE_HOTKEY_LABEL" String="Elige la tecla de acceso rápido para abrir la interfaz." />
 		<Translation ID="TOOLTIP_THEMES" String="Temas" />
 		<Translation ID="TOOLTIP_TERRAIN" String="Terreno" />
 		<Translation ID="TOOLTIP_WATER" String="Agua" />

@@ -1,5 +1,6 @@
-﻿using ColossalFramework.Plugins;
-using CitiesHarmony.API;
+﻿using CitiesHarmony.API;
+using ColossalFramework.Plugins;
+using ColossalFramework.UI;
 using ICities;
 using JetBrains.Annotations;
 using ThemeMixer.Locale;
@@ -9,12 +10,6 @@ using ThemeMixer.Serialization;
 using ThemeMixer.Themes;
 using ThemeMixer.TranslationFramework;
 using ThemeMixer.UI;
-using UnityEngine;
-using ColossalFramework.UI;
-using ThemeMixer.UI.Abstraction;
-using System.Resources;
-using ThemeMixer.UI.Parts.TexturePanels;
-using TM;
 
 
 namespace ThemeMixer
@@ -30,7 +25,7 @@ namespace ThemeMixer
         public static bool InGame => (ToolManager.instance.m_properties.m_mode == ItemClass.Availability.Game);
 
         public static bool ThemeDecalsEnabled => IsModEnabled(895061550UL, "Theme Decals");
-        
+
 
         private static UltimateEyeCandyPatch UltimateEyeCandyPatch { get; set; }
         public static object Instance { get; private set; }
@@ -49,7 +44,12 @@ namespace ThemeMixer
             ManagersOnEnabled();
             HarmonyHelper.DoOnHarmonyReady(() => Patcher.PatchAll());
             UnityEngine.Debug.Log("Theme Mixer 2.5 has been initialized.");
+
+
+
         }
+
+
 
         [UsedImplicitly]
         public void OnDisabled()

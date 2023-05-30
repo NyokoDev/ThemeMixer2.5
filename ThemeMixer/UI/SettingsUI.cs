@@ -1,28 +1,26 @@
-﻿using ColossalFramework.Importers;
+﻿using System;
+using System.IO;
 using ColossalFramework.UI;
 using ICities;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
 using ThemeMixer.Locale;
 using ThemeMixer.Resources;
 using ThemeMixer.TranslationFramework;
 using ThemeMixer.UI;
+using ThemeMixer.UI.Abstraction;
 using UnityEngine;
 
-namespace TM {
-    public class TM2_5 {
+namespace TM
+{
+    public class TM2_5
+    {
 
-        public void OnSettingsUI(UIHelperBase helper) {
+        public void OnSettingsUI(UIHelperBase helper)
+        {
             var panel = (helper.AddGroup("Theme Mixer 2.5") as UIHelper).self as UIPanel;
-            panel.atlas = TM2Atlas.TMAtlas;
-            panel.backgroundSprite = TM2Atlas.BCK;
+            panel.backgroundSprite = null; 
             //Set what you wanna size.
-            panel.size = new Vector2();
-            var dropDown = AddDropDown(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_INTERFACE_THEME_LABEL), new string[] { "Purple", "Dark Blue", "Red", "Light Blue", "Default" }, 0, (_) => {
+            var dropDown = AddDropDown(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_INTERFACE_THEME_LABEL), new string[] { "Purple", "Dark Blue", "Red", "Light Blue", "Default" }, 0, (_) =>
+            {
                 if (_ == 0)
                 {
                     ColorData.UIColor = ColorData.UIColorPurple;
@@ -46,40 +44,105 @@ namespace TM {
                 ColorData.Save(); // Save the selected color to storage
             });
 
+            UIToggle toggle = UnityEngine.Object.FindObjectOfType<UIToggle>();
+
+
+
+            // Add the dropdown to the panel
             var dropDown2 = AddDropDown(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_INTERFACE_HOTKEY_LABEL),
-    new string[] { "Ctrl+Alt+Z", "Ctrl+Shift+C", "Alt+X", "Ctrl+Shift+V", "Ctrl+Alt+Shift+D" }, 0, (_) =>
-    {
-        // Find the UIToggle component you want to change
-        UIToggle toggle = UnityEngine.Object.FindObjectOfType<UIToggle>();
+   new string[] { UIToggle.referenceHotkey, "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Insert", "Delete", "Home", "Page Up", "Page Down", "End", "Left Shift", "Right Shift" }, 0, (_) =>
+   {
+       // Find the UIToggle component you want to change
+       UIToggle toggle3 = UnityEngine.Object.FindObjectOfType<UIToggle>();
 
-        // Set the hotkey to the desired KeyCode based on the selected option from the dropdown
-        if (_ == 0)
-        {
-            toggle._hotkey = KeyCode.LeftAlt | KeyCode.LeftControl | KeyCode.Z;
-        }
-        else if (_ == 1)
-        {
-            toggle._hotkey = KeyCode.LeftControl | KeyCode.LeftShift | KeyCode.C;
-        }
-        else if (_ == 2)
-        {
-            toggle._hotkey = KeyCode.LeftAlt | KeyCode.X;
-        }
-        else if (_ == 3)
-        {
-            toggle._hotkey = KeyCode.LeftShift | KeyCode.LeftControl | KeyCode.V;
-        }
-        else if (_ == 4)
-        {
-            toggle._hotkey = KeyCode.LeftAlt | KeyCode.LeftControl | KeyCode.LeftShift | KeyCode.D;
-        }
+       // Set the hotkey to the desired KeyCode based on the selected option from the dropdown
+       if (_ == 0)
+       {
+           toggle3._hotkey = toggle3._hotkey;
+       }
+       else if (_ == 1)
+       {
+           toggle3._hotkey = KeyCode.F1;
+       }
+       else if (_ == 2)
+       {
+           toggle3._hotkey = KeyCode.F2;
+       }
+       else if (_ == 3)
+       {
+           toggle3._hotkey = KeyCode.F3;
+       }
+       else if (_ == 4)
+       {
+           toggle3._hotkey = KeyCode.F4;
+       }
+       else if (_ == 5)
+       {
+           toggle3._hotkey = KeyCode.F5;
+       }
+       else if (_ == 6)
+       {
+           toggle3._hotkey = KeyCode.F6;
+       }
+       else if (_ == 7)
+       {
+           toggle3._hotkey = KeyCode.F7;
+       }
+       else if (_ == 8)
+       {
+           toggle3._hotkey = KeyCode.F8;
+       }
+       else if (_ == 9)
+       {
+           toggle3._hotkey = KeyCode.F9;
+       }
+       else if (_ == 10)
+       {
+           toggle3._hotkey = KeyCode.F10;
+       }
+       else if (_ == 11)
+       {
+           toggle3._hotkey = KeyCode.F11;
+       }
+       else if (_ == 12)
+       {
+           toggle3._hotkey = KeyCode.F12;
+       }
+       else if (_ == 13)
+       {
+           toggle3._hotkey = KeyCode.Insert;
+       }
+       else if (_ == 14)
+       {
+           toggle3._hotkey = KeyCode.Delete;
+       }
+       else if (_ == 15)
+       {
+           toggle3._hotkey = KeyCode.Home;
+       }
+       else if (_ == 16)
+       {
+           toggle3._hotkey = KeyCode.PageUp;
+       }
+       else if (_ == 17)
+       {
+           toggle3._hotkey = KeyCode.PageDown;
+       }
+       else if (_ == 18)
+       {
+           toggle3._hotkey = KeyCode.End;
+       }
+       else if (_ == 19)
+       {
+           toggle3._hotkey = KeyCode.LeftShift;
+       }
+       else if (_ == 20)
+       {
+           toggle3._hotkey = KeyCode.RightShift;
+       }
 
-        Debug.Log("Hotkey changed to " + toggle._hotkey);
-    });
-
-
-
-
+       Debug.Log("Hotkey changed to " + toggle3._hotkey);
+   });
 
 
 
@@ -96,7 +159,7 @@ namespace TM {
             var resetButton = AddButton(panel, Translation.Instance.GetTranslation(TranslationID.RESET_UI_TOGGLE_LABEL), () =>
             {
                 // Create an instance of the UIToggle class
-                var toggle = new UIToggle();
+
 
                 // Get the default position for the UIToggle from the instance
                 var defaultPosition = toggle.GetDefaultPosition();
@@ -105,15 +168,40 @@ namespace TM {
             resetButton.relativePosition = new Vector2(50, resetButton.relativePosition.y + resetButton.size.y + 10);
         }
 
+        private void SaveHotkeyToFile(string hotkey)
+        {
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string directoryPath = appDataPath + "\\Colossal Order\\Cities_Skylines";
+            Directory.CreateDirectory(directoryPath);
 
-        private static UIButton AddButton(UIComponent parent, string text, Action callback) {
+            string filePath = directoryPath + "\\TM2.5_key_config.txt";
+
+            // Check if the file already exists
+            if (!File.Exists(filePath))
+            {
+                // Create the file if it doesn't exist
+                File.Create(filePath).Close();
+            }
+
+            // Write the hotkey to the file
+            File.WriteAllText(filePath, hotkey);
+
+            // Show the exception panel to inform the user about the hotkey change
+            
+
+            Debug.Log("Hotkey changed to " + hotkey);
+        }
+
+        private static UIButton AddButton(UIComponent parent, string text, Action callback)
+        {
             var button = parent.AttachUIComponent(UITemplateManager.GetAsGameObject(@"OptionsButtonTemplate")) as UIButton;
             button.wordWrap = false;
             button.text = text;
             button.eventClicked += (s, e) => callback?.Invoke();
             return button;
         }
-        private static UIDropDown AddDropDown(UIComponent parent, string text, string[] options, int defaultSelection, Action<int> callback) {
+        private static UIDropDown AddDropDown(UIComponent parent, string text, string[] options, int defaultSelection, Action<int> callback)
+        {
             UIPanel uiPanel = parent.AttachUIComponent(UITemplateManager.GetAsGameObject(@"OptionsDropdownTemplate")) as UIPanel;
             UILabel label = uiPanel.Find<UILabel>(@"Label");
             label.autoSize = true;
@@ -131,68 +219,5 @@ namespace TM {
         {
             throw new NotImplementedException();
         }
-    }
-
-
-    internal class TM2Atlas {
-        private static UITextureAtlas tMAtlas;
-        public static Dictionary<string, RectOffset> SpriteParams { get; private set; } = new Dictionary<string, RectOffset>();
-        public static string BCK => nameof(BCK);
-        //Your image name, also included in you project.
-        static TM2Atlas() => SpriteParams[BCK] = new RectOffset(4, 4, 4, 4);
-        //Atlas what we create.
-        public static UITextureAtlas TMAtlas {
-            get {
-                if (tMAtlas is null) {
-                    var assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
-                    tMAtlas = UIUtils.CreateTextureAtlas(nameof(TMAtlas), $"{assemblyName}.UI.", SpriteParams);
-                    return tMAtlas;
-                } else {
-                    return tMAtlas;
-                }
-            }
-        }
-    }
-
-    internal class UIUtils {
-        public static UITextureAtlas CreateTextureAtlas(string atlasName, string path, Dictionary<string, RectOffset> spriteParams, int maxSpriteSize = 1024) {
-            var keys = spriteParams.Keys.ToArray();
-            var value = spriteParams.Values.ToArray();
-            Texture2D texture2D = new Texture2D(maxSpriteSize, maxSpriteSize, TextureFormat.ARGB32, false);
-            Texture2D[] textures = new Texture2D[spriteParams.Count];
-            for (int i = 0; i < spriteParams.Count; i++) {
-                textures[i] = LoadTextureFromAssembly(path + keys[i] + ".png");
-            }
-            Rect[] regions = texture2D.PackTextures(textures, 2, maxSpriteSize);
-            UITextureAtlas uITextureAtlas = ScriptableObject.CreateInstance<UITextureAtlas>();
-            Material material = UnityEngine.Object.Instantiate(UIView.GetAView().defaultAtlas.material);
-            material.mainTexture = texture2D;
-            uITextureAtlas.material = material;
-            uITextureAtlas.name = atlasName;
-            for (int j = 0; j < spriteParams.Count; j++) {
-                UITextureAtlas.SpriteInfo item = new UITextureAtlas.SpriteInfo() {
-                    name = keys[j],
-                    texture = textures[j],
-                    region = regions[j],
-                    border = value[j]
-                };
-                uITextureAtlas.AddSprite(item);
-            }
-            return uITextureAtlas;
-        }
-
-        public static Texture2D LoadTextureFromAssembly(string fileName) {
-            try {
-                Stream s = Assembly.GetExecutingAssembly().GetManifestResourceStream(fileName);
-                byte[] array = new byte[s.Length];
-                s.Read(array, 0, array.Length);
-                return new Image(array).CreateTexture();
-            }
-            catch (Exception e) {
-                Debug.Log($"Couldn't load texture from assembly, file name:{fileName}, detial:{e.Message}");
-                return null;
-            }
-        }
-
     }
 }

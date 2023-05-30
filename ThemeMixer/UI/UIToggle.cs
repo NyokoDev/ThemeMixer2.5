@@ -1,7 +1,11 @@
-﻿using ColossalFramework.UI;
+﻿using System;
+using System.IO;
+using ColossalFramework.UI;
+using ICities;
 using ThemeMixer.Resources;
 using ThemeMixer.Serialization;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ThemeMixer.UI
 {
@@ -9,9 +13,8 @@ namespace ThemeMixer.UI
     {
         public delegate void UIToggleClickedEventHandler();
         public event UIToggleClickedEventHandler EventUIToggleClicked;
-        public KeyCode _hotkey = KeyCode.F;
-
-
+        public KeyCode _hotkey = KeyCode.T;
+        public static string referenceHotkey;
 
         private bool _toggled;
         private Vector3 DeltaPos { get; set; }
@@ -25,7 +28,79 @@ namespace ThemeMixer.UI
             hoveredBgSprite = UISprites.UIToggleIconHovered;
             pressedBgSprite = UISprites.UIToggleIconPressed;
             absolutePosition = SerializationService.Instance.GetUITogglePosition() ?? GetDefaultPosition();
+
+            // Read the hotkey from the TM2.5_key_config.txt file
+            string hotkeyFilePath = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "TM2.5_key_config.txt"
+            );
+
+            if (!File.Exists(hotkeyFilePath))
+            {
+                // Create the file with a default hotkey if it doesn't exist
+                KeyCode defaultHotkey = KeyCode.None; // Replace with your desired default hotkey
+                UIToggle.referenceHotkey = defaultHotkey.ToString();
+                File.WriteAllText(hotkeyFilePath, defaultHotkey.ToString());
+            }
+
+            string hotkeyString = File.ReadAllText(hotkeyFilePath).Trim();
+            KeyCode hotkey;
+            if (Enum.IsDefined(typeof(KeyCode), hotkeyString))
+            {
+                hotkey = (KeyCode)Enum.Parse(typeof(KeyCode), hotkeyString);
+
+                // Check if the hotkey has changed
+                if (hotkey != _hotkey)
+                {
+                    // Save the new hotkey
+                    _hotkey = hotkey;
+
+                    // Perform any necessary actions with the new hotkey
+                    // ...
+
+                    // Show a message indicating that the hotkey has been updated
+                    Debug.Log("New hotkey saved: " + _hotkey);
+                    
+
+                }
+            }
+            else
+            {
+                Debug.LogError("Invalid hotkey: " + hotkeyString);
+                UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage("Hotkey Save Error", "Failed to save the hotkey settings.", true);
+            }
         }
+
+        public class LoadingExtension : LoadingExtensionBase
+        {
+            public override void OnLevelLoaded(LoadMode mode)
+            {
+                if (mode == LoadMode.NewGame)
+                {
+
+                    // Display warning if player has installed LUT Creator Mod (currently a testing environment)
+                    UIPanel exceptionPanel = UIView.library.ShowModal<UIPanel>("ExceptionPanel") as UIPanel;
+                    exceptionPanel.SendMessage("Thank you for installing Theme Mixer 2.5");
+
+                    // Example customization:
+                    exceptionPanel.backgroundSprite = "GenericPanel";
+                    exceptionPanel.color = new Color32(0, 0, 0, 200);
+                    exceptionPanel.width = 500f;
+                    exceptionPanel.height = 250f;
+                    exceptionPanel.relativePosition = new Vector3(500f, 300f);
+                    exceptionPanel.Find<UILabel>("ExceptionTitle").textColor = Color.red;
+                    exceptionPanel.Find<UILabel>("ExceptionMessage").textColor = Color.white;
+                    exceptionPanel.Find<UILabel>("ExceptionMessage").wordWrap = true;
+                    exceptionPanel.AttachUIComponent(exceptionPanel.Find<UILabel>("ExceptionMessage").gameObject);
+
+                }
+
+            }
+        }
+
+
+
+
 
         public Vector2 GetDefaultPosition()
         {
@@ -42,12 +117,11 @@ namespace ThemeMixer.UI
             normalBgSprite = _toggled ? UISprites.UIToggleIconFocused : UISprites.UIToggleIcon;
         }
 
-
-
         public override void Update()
         {
             base.Update();
 
+            // Handle the key press event using the current hotkey value
             if (Input.GetKeyDown(_hotkey))
             {
                 Debug.Log("Hotkey pressed: " + _hotkey);
@@ -56,7 +130,6 @@ namespace ThemeMixer.UI
                 normalBgSprite = _toggled ? UISprites.UIToggleIconFocused : UISprites.UIToggleIcon;
             }
         }
-
 
 
         protected override void OnMouseDown(UIMouseEventParameter p)

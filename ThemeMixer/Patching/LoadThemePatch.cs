@@ -105,7 +105,7 @@ namespace ThemeMixer.Patching
                     }
                     catch (Exception ex)
                     {
-                       
+
                     }
                 }
 

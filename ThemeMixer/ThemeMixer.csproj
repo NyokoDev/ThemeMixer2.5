@@ -108,7 +108,9 @@
 	  <_Locales Remove="Locale\spanish.xml" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Content Include="Locale\spanish.xml" />
+	  <Content Include="Locale\spanish.xml">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 	<Target Name="DeployToModDirectory" AfterTargets="Build">
 		<PropertyGroup>

@@ -1,0 +1,23 @@
+﻿<Options>
+	<Option id="1">T</Option>
+	<Option id="2">F1</Option>
+	<Option id="3">F2</Option>
+	<Option id="4">F3</Option>
+	<Option id="5">F4</Option>
+	<Option id="6">F5</Option>
+	<Option id="7">F6</Option>
+	<Option id="8">F7</Option>
+	<Option id="9">F8</Option>
+	<Option id="10">F9</Option>
+	<Option id="11">F10</Option>
+	<Option id="12">F11</Option>
+	<Option id="13">F12</Option>
+	<Option id="14">Insert</Option>
+	<Option id="15">Delete</Option>
+	<Option id="16">Home</Option>
+	<Option id="17">Page Up</Option>
+	<Option id="18">Page Down</Option>
+	<Option id="19">End</Option>
+	<Option id="20">Left Shift</Option>
+	<Option id="21">Right Shift</Option>
+</Options>

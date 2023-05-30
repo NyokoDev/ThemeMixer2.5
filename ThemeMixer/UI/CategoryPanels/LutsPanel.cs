@@ -1,5 +1,4 @@
-﻿using ColossalFramework.Plugins;
-using ColossalFramework.UI;
+﻿using ColossalFramework.UI;
 using ThemeMixer.Locale;
 using ThemeMixer.Resources;
 using ThemeMixer.Themes.Enums;
@@ -32,13 +31,13 @@ namespace ThemeMixer.UI.CategoryPanels
 
             if (isRenderItEnabled)
             {
-                
+
                 Debug.Log("Theme Mixer 2.5: Render It! mod is enabled");
             }
             else
             {
                 Debug.Log("Theme Mixer 2.5: Render It! mod is not enabled");
-               
+
             }
         }
 

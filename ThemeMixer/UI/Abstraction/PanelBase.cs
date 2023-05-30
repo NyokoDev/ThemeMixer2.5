@@ -12,7 +12,7 @@ namespace ThemeMixer.UI.Abstraction
         public static event EventHandler<ThemeDirtyEventArgs> EventThemeDirty;
         protected UIController Controller => UIController.Instance;
         protected SerializationService Data => SerializationService.Instance;
-        
+
         protected static Color32 UIColorDark { get; set; } = new Color32(191, 191, 191, 255);
         protected static Color32 UIColorLight { get; set; } = new Color32(128, 128, 128, 255);
         protected static Color32 UIColorGrey { get; set; } = new Color32(55, 58, 60, 255);
