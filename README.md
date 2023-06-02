@@ -45,12 +45,6 @@ Once installed, Theme Mixer provides an intuitive user interface for managing an
 4. Adjust the settings to fine-tune the appearance of the mixed theme.
 5. Apply the changes and watch your city transform with your personalized theme!
 
-For more information on using Theme Mixer and its various features, refer to the [User Guide](https://github.com/theme-mixer/documentation/blob/main/user-guide.md).
-
-## Contributing
-
-We welcome contributions from the community to help improve Theme Mixer for Cities: Skylines. If you encounter any bugs, have suggestions for new features, or would like to contribute code, please check out our [Contribution Guidelines](https://github.com/theme-mixer/documentation/blob/main/contributing.md).
-
 ## Support
 
 If you need assistance with Theme Mixer, encounter any issues, or have questions specific to Cities: Skylines, please join our Discord server called "Mod Testing". You can find support in the channel called "nyoko" located in the "Modders Corner" category. 
