@@ -57,7 +57,6 @@ Theme Mixer is released under the MIT License.
 
 Contribute to the development team :
 
-- [Paypal](https://discord.gg/eC79XQ4qH9](https://www.paypal.com/donate/?hosted_button_id=DZYTC3AEG85V8)
 - [Discord](https://discord.gg/eC79XQ4qH9)
 - [Patreon](https://www.patreon.com/Nyoko533?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link)
 
