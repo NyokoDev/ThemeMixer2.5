@@ -1,7 +1,5 @@
 # Theme Mixer 2.5
 
-![Theme Mixer Logo](https://example.com/theme-mixer-logo.png)
-
 Theme Mixer is a powerful mod for game customization that allows you to mix and match themes in Cities: Skylines. With Theme Mixer 2.5, you can take your city-building experience to the next level by creating unique and personalized visual styles.
 
 ## Features
@@ -27,13 +25,13 @@ To install Theme Mixer 2.5 for Cities: Skylines, you have two options depending 
 
 To install Theme Mixer 2.5 for the Epic Games or Mac version of Cities: Skylines, please follow these steps:
 
-1. Download the latest release of Theme Mixer from the [GitHub releases page](https://github.com/theme-mixer/releases).
-2. Extract the downloaded `.zip` file to a location of your choice.
-3. Locate the game's installation directory on your computer.
-   - For Epic Games users: Open the Epic Games Launcher, go to your Library, and click on the "..." button next to Cities: Skylines. Select "Show in Folder" to open the installation directory.
-   - For Mac users: Open Finder, click on "Go" in the menu bar, select "Go to Folder," and enter the game's installation path.
-4. Copy the extracted files and folders from Step 2 into the appropriate game directory.
-5. Launch Cities: Skylines and access the theme customization options provided by Theme Mixer.
+1. Download the Theme Mixer 2.5 - Version 1.14 zip file from the GitHub release page.
+2. Locate your AppData folder on your computer.
+For Windows users: Open File Explorer and enter %appdata% in the address bar. Press Enter.
+For Mac users: Open Finder and click on "Go" in the menu bar. Select "Go to Folder" and enter ~/Library/Application Support/.
+4. Navigate to the "Local" folder, followed by "Colossal Order," "Addons," and finally "Mods."
+5. Extract the contents of the downloaded zip file into the "Mods" folder.
+6. Launch the game and enjoy the enhanced theme customization options provided by Theme Mixer 2.5!
 
 For troubleshooting join the [Discord](https://discord.gg/eC79XQ4qH9).
 
