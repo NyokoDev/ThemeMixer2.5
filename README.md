@@ -26,7 +26,9 @@ To install Theme Mixer 2.5 for Cities: Skylines, you have two options depending 
 To install Theme Mixer 2.5 for the Epic Games or Mac version of Cities: Skylines, please follow these steps:
 
 1. Download the Theme Mixer 2.5 - Version 1.14 `.zip` file from the GitHub release page.
-2. Locate your AppData folder on your computer.
+Additionally, you will need Harmony 2.2.2 by boformer in order to ensure Theme Mixer 2.5 works well. Download Harmony here: 
+https://github.com/boformer/CitiesHarmony/releases/tag/v2.2.2-0
+3. Locate your AppData folder on your computer.
 For Windows users: Open File Explorer and enter %appdata% in the address bar. Press Enter.
 For Mac users: Open Finder and click on "Go" in the menu bar. Select "Go to Folder" and enter ~/Library/Application Support/.
 4. Navigate to the "Local" folder, followed by "Colossal Order," "Addons," and finally "Mods."
