@@ -20,8 +20,7 @@ namespace ThemeMixer.UI.CategoryPanels
 
         public override void Awake()
         {
-            bool isRenderItEnabled = ThemeMixer.ModUtils.ModChecker.IsModEnabled("Render It!");
-            _disableEvents = isRenderItEnabled;
+
             base.Awake();
             Category = ThemeCategory.None;
             Setup("Luts Panel", 360.0f, 0.0f, 5, true, LayoutDirection.Vertical, LayoutStart.TopLeft, "GenericPanel");
@@ -29,16 +28,6 @@ namespace ThemeMixer.UI.CategoryPanels
             CreateLoadLutsPanel();
             this.CreateSpace(0.0f, 0.1f);
 
-            if (isRenderItEnabled)
-            {
-
-                Debug.Log("Theme Mixer 2.5: Render It! mod is enabled");
-            }
-            else
-            {
-                Debug.Log("Theme Mixer 2.5: Render It! mod is not enabled");
-
-            }
         }
 
         private void CreateTitleLabel()

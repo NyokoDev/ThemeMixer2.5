@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "TM2.5": {
+      "commandName": "Project"
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Cities_Skylines\\Cities.exe"
+    }
+  }
+}

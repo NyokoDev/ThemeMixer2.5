@@ -1,24 +1,41 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using AlgernonCommons.Translation;
 using ColossalFramework.UI;
 using ICities;
+using ThemeMixer;
 using ThemeMixer.Locale;
 using ThemeMixer.Resources;
 using ThemeMixer.TranslationFramework;
 using ThemeMixer.UI;
 using ThemeMixer.UI.Abstraction;
+using UnifiedUI;
+using UnifiedUI.Helpers;
 using UnityEngine;
+using ThemeMixer;
+using UnityEngine.UI;
+using static RenderManager;
+using ColossalFramework;
+using System.Runtime.InteropServices;
 
 namespace TM
 {
     public class TM2_5
     {
 
+        
+
+        UIToggle toggle = UnityEngine.Object.FindObjectOfType<UIToggle>();
+
         public void OnSettingsUI(UIHelperBase helper)
         {
             var panel = (helper.AddGroup("Theme Mixer 2.5") as UIHelper).self as UIPanel;
-            panel.backgroundSprite = null; 
+
+
+
+            panel.backgroundSprite = null;
+
             //Set what you wanna size.
             var dropDown = AddDropDown(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_INTERFACE_THEME_LABEL), new string[] { "Purple", "Dark Blue", "Red", "Light Blue", "Default" }, 0, (_) =>
             {
@@ -45,12 +62,14 @@ namespace TM
                 ColorData.Save(); // Save the selected color to storage
             });
 
-            UIToggle toggle = UnityEngine.Object.FindObjectOfType<UIToggle>();
+         
+         
+
+        
 
 
-
-            // Add the dropdown to the panel
-            var dropDown2 = AddDropDown(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_INTERFACE_HOTKEY_LABEL),
+        // Add the dropdown to the panel
+        var dropDown2 = AddDropDown(panel, Translation.Instance.GetTranslation(TranslationID.SETTINGS_INTERFACE_HOTKEY_LABEL),
    new string[] { "None", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Insert", "Delete", "Home", "Page Up", "Page Down", "End", "Left Shift", "Right Shift" }, 0, (_) =>
    {
        // Find the UIToggle component you want to change

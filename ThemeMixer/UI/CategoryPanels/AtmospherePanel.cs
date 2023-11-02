@@ -1,6 +1,7 @@
 ﻿using ColossalFramework.UI;
 using ThemeMixer.Locale;
 using ThemeMixer.Resources;
+using ThemeMixer.Helpers;
 using ThemeMixer.Themes.Enums;
 using ThemeMixer.TranslationFramework;
 using ThemeMixer.UI.Abstraction;
@@ -8,6 +9,7 @@ using ThemeMixer.UI.Parts.ColorPanels;
 using ThemeMixer.UI.Parts.TexturePanels;
 using ThemeMixer.UI.Parts.ValuePanels;
 using UnityEngine;
+using static ThemeMixer.Helpers.CompatibilityHelper;
 
 namespace ThemeMixer.UI.CategoryPanels
 {
@@ -80,15 +82,23 @@ namespace ThemeMixer.UI.CategoryPanels
 
         private void CreatePanels()
         {
-            _panelLeft.AddUIComponent<LongitudePanel>();
-            _panelLeft.CreateSpace(1.0f, 5.0f);
-            _panelLeft.AddUIComponent<LatitudePanel>();
-            _panelLeft.CreateSpace(1.0f, 5.0f);
+            if (ModUtils.IsModEnabled("renderit"))
+            { 
+                _panelLeft.CreateSpace(1.0f, 5.0f);
+            }
+            else
+            {
+                _panelLeft.AddUIComponent<LongitudePanel>();
+                _panelLeft.CreateSpace(1.0f, 5.0f);
+                _panelLeft.AddUIComponent<LatitudePanel>();
+                _panelLeft.CreateSpace(1.0f, 5.0f);
+                _panelLeft.AddUIComponent<ExposurePanel>();
+                _panelLeft.CreateSpace(1.0f, 5.0f);
+            }
+
             _panelLeft.AddUIComponent<SunSizePanel>();
             _panelLeft.CreateSpace(1.0f, 5.0f);
             _panelLeft.AddUIComponent<SunAnisotropyPanel>();
-            _panelLeft.CreateSpace(1.0f, 5.0f);
-            _panelLeft.AddUIComponent<ExposurePanel>();
             _panelLeft.CreateSpace(1.0f, 5.0f);
 
             _panelCenter.AddUIComponent<RayleighPanel>();
@@ -101,7 +111,6 @@ namespace ThemeMixer.UI.CategoryPanels
             _panelCenter.CreateSpace(1.0f, 5.0f);
             _panelCenter.AddUIComponent<MoonSizePanel>();
             _panelCenter.CreateSpace(1.0f, 5.0f);
-
 
             _skyTint = _panelRight.AddUIComponent<SkyTintPanel>();
             _skyTint.EventVisibilityChanged += OnColorPanelVisibilityChanged;
@@ -117,6 +126,9 @@ namespace ThemeMixer.UI.CategoryPanels
             _moonOuterCorona.EventVisibilityChanged += OnColorPanelVisibilityChanged;
             _moonTexture = _panelRight.AddUIComponent<MoonTexturePanel>();
         }
+
+
+
 
         private void OnColorPanelVisibilityChanged(object sender, ColorPanelVisibilityChangedEventArgs eventArgs)
         {
