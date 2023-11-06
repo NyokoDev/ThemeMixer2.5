@@ -13,7 +13,7 @@ namespace ThemeMixer.UI
 {
     public class UIToggle : UIButton
     {
-      
+
         public delegate void UIToggleClickedEventHandler();
         public event UIToggleClickedEventHandler EventUIToggleClicked;
         public KeyCode _hotkey = KeyCode.T;
@@ -24,7 +24,7 @@ namespace ThemeMixer.UI
         private Vector3 DeltaPos { get; set; }
         private Keybinding keybinding;
 
-        
+
         internal static bool ensurance = true;
 
         public override void Start()
@@ -36,7 +36,7 @@ namespace ThemeMixer.UI
             hoveredBgSprite = UISprites.UIToggleIconHovered;
             pressedBgSprite = UISprites.UIToggleIconPressed;
             absolutePosition = SerializationService.Instance.GetUITogglePosition() ?? GetDefaultPosition();
-       
+
 
             // Read the hotkey from the TM2.5_key_config.txt file
             string hotkeyFilePath = Path.Combine(
@@ -69,7 +69,7 @@ namespace ThemeMixer.UI
 
                     // Show a message indicating that the hotkey has been updated
                     Debug.Log("New hotkey saved: " + _hotkey);
-                    
+
 
                 }
             }
@@ -93,25 +93,68 @@ namespace ThemeMixer.UI
             _toggled = !_toggled;
             EventUIToggleClicked?.Invoke();
             normalBgSprite = _toggled ? UISprites.UIToggleIconFocused : UISprites.UIToggleIcon;
+            Mod._uuiButton.IsPressed = false;
         }
 
-        public override void Update()
+
+        public void OnClickUUI()
         {
+            _toggled = !_toggled;
+            EventUIToggleClicked?.Invoke();
+            normalBgSprite = _toggled ? UISprites.UIToggleIconFocused : UISprites.UIToggleIcon;
+            Debug.Log("Theme Mixer 2.5: OnClick at UIToggle.cs triggered.");
+        }
+    
+            
+                  
+
+        public void Close()
+        {
+            if (Mod.UUIToggled == false)
+            {
+                if (Mod.UUIExecuted == false)
+                {
+                    _toggled = !_toggled;
+                    EventUIToggleClicked?.Invoke();
+                    normalBgSprite = _toggled ? UISprites.UIToggleIconFocused : UISprites.UIToggleIcon;
+                    Debug.Log("Theme Mixer 2.5: Close at UIToggle.cs triggered.");
+                    RestartUUICalls();
+                }
+                else
+                {
+                    Debug.Log("Theme Mixer 2.5: Error: OnClick at UIToggle.cs not triggered.");
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        // Approach for UUICalls 
+
+        private bool UUICallsLoaded = false;
+        private bool CloseCalled = false;
+
+        public override void Update() { 
             base.Update();
 
-            // Handle the key press event using the current hotkey value
-            if (Input.GetKeyDown(_hotkey))
+            
+            if (Input.GetKeyDown(_hotkey)) // Approach for hotkey handling 
             {
                 Debug.Log("Hotkey pressed: " + _hotkey);
                 EventUIToggleClicked?.Invoke();
                 _toggled = !_toggled;
                 normalBgSprite = _toggled ? UISprites.UIToggleIconFocused : UISprites.UIToggleIcon;
+                Mod._uuiButton.IsPressed = false;
             }
         }
 
-
-
-
+        private void RestartUUICalls()
+        {
+            UUICallsLoaded = false;
+        }
 
         protected override void OnMouseDown(UIMouseEventParameter p)
         {
@@ -144,6 +187,8 @@ namespace ThemeMixer.UI
                 SerializationService.Instance.SaveData();
             }
         }
+
+      
 
         public void Toggle()
         {

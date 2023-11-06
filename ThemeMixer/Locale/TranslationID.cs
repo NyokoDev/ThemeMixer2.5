@@ -144,6 +144,9 @@ namespace ThemeMixer.Locale
         public const string LABEL_VALUE_FOGPROBABILITYNIGHT = "LABEL_VALUE_FOGPROBABILITYNIGHT";
         public const string LABEL_VALUE_NORTHERNLIGHTSPROBABILITY = "LABEL_VALUE_NORTHERNLIGHTSPROBABILITY";
 
+        public const string HOTKEY = "HOTKEY";
+        public const string LABEL2 = "LABEL2";
+
         public static string TextureToTranslationID(TextureID textureID)
         {
             switch (textureID)

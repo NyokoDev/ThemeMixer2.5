@@ -20,7 +20,7 @@ internal class DataEnsurance
     internal static UnsavedInputKey ToggleKey => UUIKey;
     // UUI hotkey.
     [XmlIgnore]
-    private static readonly UnsavedInputKey UUIKey = new UnsavedInputKey(name: "ThemeMixer", keyCode: KeyCode.L, control: true, shift: false, alt: true);
+    private static readonly UnsavedInputKey UUIKey = new UnsavedInputKey(name: "ThemeMixer", keyCode: KeyCode.L, control: false, shift: true, alt: false);
 
 
     internal static void Save()

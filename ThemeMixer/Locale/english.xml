@@ -2,6 +2,7 @@
 <Language UniqueName="en" ReadableName="English" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2009/XMLSchema/XMLSchema.xsd">
 	<Translations>
 		<Translation ID="MOD_DESCRIPTION" String="With this tool, you can effortlessly customize, mix and load your Map Themes." />
+		<Translation ID="MOD_NAME" String="Theme Mixer 2.5" />
 		<Translation ID="BUTTON_OK" String="OK" />
 		<Translation ID="BUTTON_CLOSE" String="Close" />
 		<Translation ID="BUTTON_SAVE" String="Save" />
@@ -127,5 +128,9 @@
 		<Translation ID="LABEL_VALUE_FOGPROBABILITYDAY" String="Fog probability day" />
 		<Translation ID="LABEL_VALUE_FOGPROBABILITYNIGHT" String="Fog probability night" />
 		<Translation ID="LABEL_VALUE_NORTHERNLIGHTSPROBABILITY" String="Northern lights probability" />
+		<Translation ID="HOTKEY" String="Select hotkey" />
+		<Translation ID="LABEL2" String="To apply translation updates, navigate to the in-game properties menu. After making adjustments, reopen the Theme Mixer UI to view the changes." />
+		
+		
 	</Translations>
 </Language>
