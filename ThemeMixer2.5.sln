@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TM2.5", "ThemeMixer\TM2.5.csproj", "{7F962063-947D-45B4-AC84-1972403A5938}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThemeMixer", "ThemeMixer\ThemeMixer.csproj", "{7F962063-947D-45B4-AC84-1972403A5938}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AlgernonCommonsPatchingShared", "..\AlgernonCommons\AlgernonCommonsPatchingShared.shproj", "{25AEF446-6F0D-43A8-BB84-D1306789B68C}"
 EndProject
@@ -22,8 +22,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4BC7B997-50CA-4B05-9E94-C09CAB159746}
 		        SolutionGuid = {AF7EC5F9-AA89-4C19-B908-146857E6927A}
+		SolutionGuid = {4BC7B997-50CA-4B05-9E94-C09CAB159746}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\AlgernonCommons\AlgernonCommonsPatchingShared.projitems*{25aef446-6f0d-43a8-bb84-d1306789b68c}*SharedItemsImports = 13
