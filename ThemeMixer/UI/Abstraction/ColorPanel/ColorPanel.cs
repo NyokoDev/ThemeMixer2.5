@@ -91,7 +91,7 @@ namespace ThemeMixer.UI.Abstraction.ColorPanel
             RefreshSavedSwatchesPanel();
             this.CreateSpace(1.0f, 0.1f);
 
-            color = Resources.ColorData.UIColor;
+            color = DataEnsurance.UIColor;
             autoFitChildrenHorizontally = true;
         }
 
@@ -181,7 +181,7 @@ namespace ThemeMixer.UI.Abstraction.ColorPanel
         {
             _colorPicker.eventColorUpdated += OnColorUpdated;
             _colorPicker.color = Controller.GetCurrentColor(ColorID);
-            _colorPicker.component.color = Resources.ColorData.UIColor;
+            _colorPicker.component.color = DataEnsurance.UIColor;
             var pickerPanel = _colorPicker.component as UIPanel;
             if (pickerPanel == null) return;
             pickerPanel.backgroundSprite = "";

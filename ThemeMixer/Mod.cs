@@ -1,6 +1,7 @@
 ﻿using CitiesHarmony.API;
 using ColossalFramework.Plugins;
 using ColossalFramework.UI;
+using ColossalFramework.IO;
 using ICities;
 using JetBrains.Annotations;
 using ThemeMixer.Locale;
@@ -15,6 +16,11 @@ using UnityEngine;
 using static ThemeMixer.UI.UIToggle;
 using AlgernonCommons.UI;
 using AlgernonCommons.Keybinding;
+using ColossalFramework.Threading;
+using AlgernonCommons;
+using System.Threading;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace ThemeMixer
 {
@@ -48,9 +54,9 @@ namespace ThemeMixer
                 var _hotkey = s_instance._hotkey;
 
             }
-            
+
         }
-      
+
 
 
         public void OnSettingsUI(UIHelperBase helper)
@@ -60,12 +66,19 @@ namespace ThemeMixer
 
             UILabels.AddLabel(panel, 0f, 0f, Translation.Instance.GetTranslation(TranslationID.LABEL2), -1f, 1.0f, UIHorizontalAlignment.Left);
 
-
             // Hotkey control.
             OptionsKeymapping uuiKeymapping = OptionsKeymapping.AddKeymapping(panel, LeftMargin, currentY, Translation.Instance.GetTranslation(TranslationID.HOTKEY), DataEnsurance.ToggleKey.Keybinding);
-            currentY += uuiKeymapping.Panel.height + GroupMargin;
 
-        }
+        
+    
+}
+    
+
+
+
+
+
+
 
         internal UUICustomButton UUIButton => _uuiButton;
         internal static UUICustomButton _uuiButton;
@@ -87,16 +100,22 @@ namespace ThemeMixer
 
         [UsedImplicitly]
         public void OnEnabled()
+
         {
-   
+
             EventHandler += HandleUIToggleClickedEvent;
             EnsureManagers();
             ManagersOnEnabled();
             HarmonyHelper.DoOnHarmonyReady(() => Patcher.PatchAll());
             UnityEngine.Debug.Log("Theme Mixer 2.5 has been initialized.");
-            ColorData.Load();
             ToggleInstance();
+            DataEnsurance.SaveXML();
+
+            // Load XML data after SaveXML completes
             DataEnsurance.LoadXML();
+            // Enable detailed logging.
+            Logging.DetailLogging = true;
+
         }
 
 
@@ -159,7 +178,7 @@ namespace ThemeMixer
         }
 
 
-       
+
 
 
 
@@ -167,15 +186,16 @@ namespace ThemeMixer
         {
             UIToggle toggle = UnityEngine.Object.FindObjectOfType<UIToggle>();
             toggle.OnClickUUI();
-            
+
         }
 
-     
 
-    public void OnToolChanged(ToolBase newTool) {
 
-        Debug.Log("Theme Mixer 2.5 UUI Button clicked");
-    
+        public void OnToolChanged(ToolBase newTool)
+        {
+
+            Debug.Log("Theme Mixer 2.5 UUI Button clicked");
+
         }
 
 
@@ -208,14 +228,14 @@ namespace ThemeMixer
             UUI();
             ThemeSprites.CreateAtlas();
             ManagersOnLevelLoaded();
-    
+
 
         }
 
         public void OnLevelUnloading()
         {
             ManagersOnLevelUnloaded();
-            
+
         }
 
         internal static bool IsModEnabled(ulong publishedFileID, string modName)
@@ -258,7 +278,7 @@ namespace ThemeMixer
         private static void ManagersOnLevelLoaded()
         {
             SerializationService.Instance.OnLevelLoaded();
-          
+
             ThemeManager.Instance.OnLevelLoaded();
             UIController.Instance.OnLevelLoaded();
         }

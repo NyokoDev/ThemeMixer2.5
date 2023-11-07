@@ -95,7 +95,7 @@ namespace ThemeMixer.UI.FastList
             _thumbnailPanel.size = new Vector2(115.0f, 66.0f);
             _thumbnailPanel.atlas = UISprites.DefaultAtlas;
             _thumbnailPanel.backgroundSprite = "WhiteRect";
-            _thumbnailPanel.color = Resources.ColorData.UIColor;
+            _thumbnailPanel.color = DataEnsurance.UIColor;
 
             _thumbnailSprite = _thumbnailPanel.AddUIComponent<UISprite>();
             _thumbnailSprite.atlas = ThemeSprites.Atlas;

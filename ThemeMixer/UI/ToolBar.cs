@@ -15,7 +15,7 @@ namespace ThemeMixer.UI
         {
             base.Awake();
             Setup("Tool Bar", 50.0f, 0.0f, 0, true, LayoutDirection.Vertical, LayoutStart.TopLeft, "GenericPanel");
-            color = Resources.ColorData.UIColor;
+            color = DataEnsurance.UIColor;
 
             _dragBar = AddUIComponent<DragHandle>();
             _dragBar.EventDragEnd += OnDragBarDragEnd;

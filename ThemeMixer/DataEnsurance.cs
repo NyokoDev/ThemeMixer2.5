@@ -27,8 +27,20 @@ namespace ThemeMixer {
         private static readonly string SettingsFileName = Path.Combine(ColossalFramework.IO.DataLocation.localApplicationData, "ThemeMixer.xml");
 
 
+        [XmlElement("SelectedColor")]
+        public static Color32 SelectedColor
+        {
+            get => UIColor;
+            set => UIColor = value;
+        }
 
         [XmlIgnore]
+        public static Color32 UIColor { get; set; } = new Color32(200, 200, 200, 255);
+    
+
+
+
+    [XmlIgnore]
         internal static UnsavedInputKey ToggleKey => UUIKey;
         // UUI hotkey.
 
@@ -44,13 +56,20 @@ namespace ThemeMixer {
             XMLFileUtils.Save<DataEnsurance>(SettingsFileName);
         }
 
+
+
         internal static void LoadXML()
 
         {
 
             XMLFileUtils.Load<DataEnsurance>(SettingsFileName);
         }
+
+
+
+        
     }
+
 }
 
 

@@ -68,7 +68,7 @@ namespace ThemeMixer.UI.Abstraction
                     break;
             }
             builtinKeyNavigation = true;
-            color = Resources.ColorData.UIColor;
+            color = DataEnsurance.UIColor;
         }
 
         protected virtual void OnRefreshUI(object sender, UIDirtyEventArgs eventArgs) { }

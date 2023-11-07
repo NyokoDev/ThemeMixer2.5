@@ -20,7 +20,7 @@
     <EnableNETAnalyzers>False</EnableNETAnalyzers>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
-    <AssemblyName>TM2.5</AssemblyName>
+    <AssemblyName>ThemeMixer</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Deterministic>True</Deterministic>

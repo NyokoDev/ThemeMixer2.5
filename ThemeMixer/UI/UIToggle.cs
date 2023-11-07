@@ -103,8 +103,6 @@ namespace ThemeMixer.UI
             EventUIToggleClicked?.Invoke();
             normalBgSprite = _toggled ? UISprites.UIToggleIconFocused : UISprites.UIToggleIcon;
             Debug.Log("Theme Mixer 2.5: OnClick at UIToggle.cs triggered.");
-            DataEnsurance.SaveXML();
-            DataEnsurance.LoadXML();
         }
     
             
