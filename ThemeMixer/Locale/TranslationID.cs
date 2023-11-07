@@ -146,6 +146,7 @@ namespace ThemeMixer.Locale
 
         public const string HOTKEY = "HOTKEY";
         public const string LABEL2 = "LABEL2";
+        public const string PRESS_ANY_KEY = ("PRESS_ANY_KEY");
 
         public static string TextureToTranslationID(TextureID textureID)
         {

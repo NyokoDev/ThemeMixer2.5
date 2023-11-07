@@ -5,32 +5,20 @@ using ICities;
 using JetBrains.Annotations;
 using ThemeMixer.Locale;
 using ThemeMixer.Patching;
-using UnifiedUI;
 using UnifiedUI.Helpers;
 using ThemeMixer.Resources;
 using ThemeMixer.Serialization;
 using ThemeMixer.Themes;
 using ThemeMixer.TranslationFramework;
 using ThemeMixer.UI;
-using TM;
-using AlgernonCommons.Translation;
-using static RenderManager;
-using UnityEngine.UI;
 using UnityEngine;
 using static ThemeMixer.UI.UIToggle;
 using AlgernonCommons.UI;
-using System;
-using Epic.OnlineServices.UI;
-using System.Configuration;
-using Epic.OnlineServices;
 using AlgernonCommons.Keybinding;
-using System.Drawing.Printing;
-using static LightEffect;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ThemeMixer
 {
- 
+
 
 
     public class Mod : IUserMod, ILoadingExtension
@@ -58,7 +46,9 @@ namespace ThemeMixer
             {
                 s_instance = toggle;
                 var _hotkey = s_instance._hotkey;
+
             }
+            
         }
       
 
@@ -77,17 +67,6 @@ namespace ThemeMixer
 
         }
 
-
-
-
-        public ColossalFramework.SavedInputKey ToggleKey
-        {
-            get
-            {
-                return new ColossalFramework.SavedInputKey(Settings.gameSettingsFile, Settings.gameSettingsFile + "_options", _hotkey, false, false, false, true);
-            }
-        }
-
         internal UUICustomButton UUIButton => _uuiButton;
         internal static UUICustomButton _uuiButton;
         private static UltimateEyeCandyPatch UltimateEyeCandyPatch { get; set; }
@@ -104,6 +83,8 @@ namespace ThemeMixer
 
 
 
+
+
         [UsedImplicitly]
         public void OnEnabled()
         {
@@ -115,6 +96,7 @@ namespace ThemeMixer
             UnityEngine.Debug.Log("Theme Mixer 2.5 has been initialized.");
             ColorData.Load();
             ToggleInstance();
+            DataEnsurance.LoadXML();
         }
 
 
@@ -125,6 +107,7 @@ namespace ThemeMixer
             if (UIToggle.ensurance == true)
             {
                 OnLoad();
+
 
             }
             else
@@ -170,15 +153,21 @@ namespace ThemeMixer
                     }
                 },
                 hotkeys: new UUIHotKeys { ActivationKey = DataEnsurance.ToggleKey }
-            );
 
+            );
             Debug.Log("Theme Mixer 2.5: UUI Button created.");
         }
+
+
+       
+
+
 
         public void HandleUIToggleClickedEvent()
         {
             UIToggle toggle = UnityEngine.Object.FindObjectOfType<UIToggle>();
             toggle.OnClickUUI();
+            
         }
 
      
@@ -186,7 +175,8 @@ namespace ThemeMixer
     public void OnToolChanged(ToolBase newTool) {
 
         Debug.Log("Theme Mixer 2.5 UUI Button clicked");
-    }
+    
+        }
 
 
 
@@ -218,11 +208,14 @@ namespace ThemeMixer
             UUI();
             ThemeSprites.CreateAtlas();
             ManagersOnLevelLoaded();
+    
+
         }
 
         public void OnLevelUnloading()
         {
             ManagersOnLevelUnloaded();
+            
         }
 
         internal static bool IsModEnabled(ulong publishedFileID, string modName)
@@ -265,6 +258,7 @@ namespace ThemeMixer
         private static void ManagersOnLevelLoaded()
         {
             SerializationService.Instance.OnLevelLoaded();
+          
             ThemeManager.Instance.OnLevelLoaded();
             UIController.Instance.OnLevelLoaded();
         }

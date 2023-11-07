@@ -129,8 +129,8 @@
 		<Translation ID="LABEL_VALUE_FOGPROBABILITYNIGHT" String="Fog probability night" />
 		<Translation ID="LABEL_VALUE_NORTHERNLIGHTSPROBABILITY" String="Northern lights probability" />
 		<Translation ID="HOTKEY" String="Select hotkey" />
-		<Translation ID="LABEL2" String="To apply translation updates, navigate to the in-game properties menu. After making adjustments, reopen the Theme Mixer UI to view the changes." />
-		
-		
+		<Translation ID="LABEL2" String="To apply translation updates, navigate to the in-game properties menu." />
+		<Translation ID="PRESS_ANY_KEY" String="Press any key" />
+
 	</Translations>
 </Language>
