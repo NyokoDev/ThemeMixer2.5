@@ -5,7 +5,7 @@
     <AssemblyTitle>$(Title)</AssemblyTitle>
     <Copyright>Copyright © 2023</Copyright>
     <Product>$(Title)</Product>
-    <Version>1.2</Version>
+    <Version>1.2.1</Version>
     <ManagedDLLPath>$(MSBuildProgramFiles32)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed</ManagedDLLPath>
     <UEPath>$(MSBuildProgramFiles32)/Steam/steamapps/workshop/content/255710/672248733</UEPath>
     <AssemblySearchPaths>
@@ -114,9 +114,7 @@
     <Content Include="Locale\spanish.xml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\UUI.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Resources\UUI.png" />
   </ItemGroup>
   <Target Name="DeployToModDirectory" AfterTargets="Build">
     <PropertyGroup>

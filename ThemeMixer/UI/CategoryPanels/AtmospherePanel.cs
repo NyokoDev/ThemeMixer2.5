@@ -82,19 +82,19 @@ namespace ThemeMixer.UI.CategoryPanels
 
         private void CreatePanels()
         {
-            if (ModUtils.IsModEnabled("renderit"))
-            { 
+          
+            
                 _panelLeft.CreateSpace(1.0f, 5.0f);
-            }
-            else
-            {
+            
+            
+            
                 _panelLeft.AddUIComponent<LongitudePanel>();
                 _panelLeft.CreateSpace(1.0f, 5.0f);
                 _panelLeft.AddUIComponent<LatitudePanel>();
                 _panelLeft.CreateSpace(1.0f, 5.0f);
                 _panelLeft.AddUIComponent<ExposurePanel>();
                 _panelLeft.CreateSpace(1.0f, 5.0f);
-            }
+            
 
             _panelLeft.AddUIComponent<SunSizePanel>();
             _panelLeft.CreateSpace(1.0f, 5.0f);

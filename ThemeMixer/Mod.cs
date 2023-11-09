@@ -69,10 +69,23 @@ namespace ThemeMixer
             // Hotkey control.
             OptionsKeymapping uuiKeymapping = OptionsKeymapping.AddKeymapping(panel, LeftMargin, currentY, Translation.Instance.GetTranslation(TranslationID.HOTKEY), DataEnsurance.ToggleKey.Keybinding);
 
-        
-    
-}
-    
+
+            UIButton SaveButton = UIButtons.AddEvenSmallerButton(panel, 0f, currentY, Translation.Instance.GetTranslation(TranslationID.SAVEBUTTON_CLICK), 200);
+            SaveButton.eventClicked += (component, eventParam) => OnSaveButtonClicked(component, eventParam);
+
+
+            void OnSaveButtonClicked(UIComponent component, UIMouseEventParameter eventParam)
+            {
+
+                DataEnsurance.SaveXML();
+
+                DataEnsurance.LoadXML();
+            }
+
+
+
+        }
+
 
 
 
@@ -109,9 +122,9 @@ namespace ThemeMixer
             HarmonyHelper.DoOnHarmonyReady(() => Patcher.PatchAll());
             UnityEngine.Debug.Log("Theme Mixer 2.5 has been initialized.");
             ToggleInstance();
-            DataEnsurance.SaveXML();
+          
 
-            // Load XML data after SaveXML completes
+            // Load XML data 
             DataEnsurance.LoadXML();
             // Enable detailed logging.
             Logging.DetailLogging = true;
@@ -228,6 +241,7 @@ namespace ThemeMixer
             UUI();
             ThemeSprites.CreateAtlas();
             ManagersOnLevelLoaded();
+            DataEnsurance.LoadXML();
 
 
         }

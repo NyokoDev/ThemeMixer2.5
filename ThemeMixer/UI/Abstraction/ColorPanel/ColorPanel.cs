@@ -324,6 +324,7 @@ namespace ThemeMixer.UI.Abstraction.ColorPanel
             _buttonsPanel.isVisible = _visible;
             _savedSwatchesPanel.isVisible = _visible;
             EventVisibilityChanged?.Invoke(this, new ColorPanelVisibilityChangedEventArgs(this, _visible));
+   
         }
 
         private void OnGotFocus(UIComponent component, UIFocusEventParameter eventParam)
