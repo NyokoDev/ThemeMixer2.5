@@ -23,6 +23,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using AlgernonCommons.Patching;
 using ThemeMixer.Structure;
+using static UnityEngine.UI.Toggle;
+using static ThemeMixer.Structure.ToggleHandler;
 
 namespace ThemeMixer
 {
@@ -36,6 +38,7 @@ namespace ThemeMixer
     using System.Linq;
     using System.Text;
     using ThemeMixer.Structure;
+    using System.Reflection;
 
     public class Mod : PatcherMod<OptionsPanel, PatcherBase>, IUserMod
 {
@@ -130,7 +133,8 @@ namespace ThemeMixer
         }
 
 
-        UIToggleClickedEventHandler eventHandler;
+        
+        
 
 
 
@@ -142,11 +146,12 @@ namespace ThemeMixer
         }
 
         private bool _toggled = UIToggle._toggled;
+       
+
 
         public void OnLoad()
         {
             UIToggle toggle = UnityEngine.Object.FindObjectOfType<UIToggle>();
-
             // Add UUI button.
             _uuiButton = UUIHelpers.RegisterCustomButton(
                 name: "Theme Mixer 2.5",
@@ -158,18 +163,24 @@ namespace ThemeMixer
                 {
                     if (value)
                     {
-                        EventHandler?.Invoke();
+                        active = !active;
+                        HandleUIToggleClickedEvent();
+                        Debug.Log("Theme Mixer 2.5: UUI button clicked.");
                     }
                     else
                     {
-                        EventHandler?.Invoke();
+                        
+                        active = !active;
+                        HandleUIToggleClickedEvent();
+                        Debug.Log("Theme Mixer 2.5: UUI button clicked.");
                     }
                 },
                 hotkeys: new UUIHotKeys { ActivationKey = DataEnsurance.ToggleKey }
 
             );
             Debug.Log("Theme Mixer 2.5: UUI Button created.");
-        }
+        
+    }
 
 
 
@@ -188,7 +199,7 @@ namespace ThemeMixer
         public void OnToolChanged(ToolBase newTool)
         {
 
-            Debug.Log("Theme Mixer 2.5 UUI Button clicked");
+          
 
         }
 

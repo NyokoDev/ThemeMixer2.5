@@ -48,15 +48,15 @@ namespace ThemeMixer.Structure
 
 
 
-            UILabels.AddLabel(this, 0f, 0f, Translation.Instance.GetTranslation(TranslationID.LABEL2), -1f, 1.0f, UIHorizontalAlignment.Left);
+            UILabels.AddLabel(this, LeftMargin, 2f, Translation.Instance.GetTranslation(TranslationID.LABEL2), -1f, 1.0f, UIHorizontalAlignment.Left);
             currentY += 35f;
 
             // Hotkey control.
             OptionsKeymapping uuiKeymapping = OptionsKeymapping.AddKeymapping(this, LeftMargin, currentY, Translation.Instance.GetTranslation(TranslationID.HOTKEY), DataEnsurance.ToggleKey.Keybinding);
-            currentY += 35f;
+            currentY += 50f;
 
 
-            UIButton SaveButton = UIButtons.AddEvenSmallerButton(this, LeftMargin, currentY, Translation.Instance.GetTranslation(TranslationID.SAVEBUTTON_CLICK));
+            UIButton SaveButton = UIButtons.AddSmallerButton(this, LeftMargin, currentY, Translation.Instance.GetTranslation(TranslationID.SAVEBUTTON_CLICK));
             currentY += 35f;
             SaveButton.eventClicked += (component, eventParam) => OnSaveButtonClicked(component, eventParam);
 
