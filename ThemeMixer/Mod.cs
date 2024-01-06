@@ -21,17 +21,26 @@ using AlgernonCommons;
 using System.Threading;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using AlgernonCommons.Patching;
+using ThemeMixer.Structure;
 
 namespace ThemeMixer
 {
 
+    using AlgernonCommons.Patching;
+    using AlgernonCommons.Translation;
+    using AlgernonCommons;
+    using ICities;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using ThemeMixer.Structure;
 
+    public class Mod : PatcherMod<OptionsPanel, PatcherBase>, IUserMod
+{
 
-    public class Mod : IUserMod, ILoadingExtension
-    {
-        private const string HarmonyID = "com.nyoko.thememixer2.5";
-
-        public string Name => "Theme Mixer 2.5";
+  
 
         public string Description => Translation.Instance.GetTranslation(TranslationID.MOD_DESCRIPTION);
 
@@ -58,46 +67,16 @@ namespace ThemeMixer
         }
 
 
-
-        public void OnSettingsUI(UIHelperBase helper)
-        {
-            var panel = (helper.AddGroup("Theme Mixer 2.5") as UIHelper).self as UIPanel;
-            float currentY = Margin;
-
-            UILabels.AddLabel(panel, 0f, 0f, Translation.Instance.GetTranslation(TranslationID.LABEL2), -1f, 1.0f, UIHorizontalAlignment.Left);
-
-            // Hotkey control.
-            OptionsKeymapping uuiKeymapping = OptionsKeymapping.AddKeymapping(panel, LeftMargin, currentY, Translation.Instance.GetTranslation(TranslationID.HOTKEY), DataEnsurance.ToggleKey.Keybinding);
-
-
-            UIButton SaveButton = UIButtons.AddEvenSmallerButton(panel, 0f, currentY, Translation.Instance.GetTranslation(TranslationID.SAVEBUTTON_CLICK), 200);
-            SaveButton.eventClicked += (component, eventParam) => OnSaveButtonClicked(component, eventParam);
-
-
-            void OnSaveButtonClicked(UIComponent component, UIMouseEventParameter eventParam)
-            {
-
-                DataEnsurance.SaveXML();
-
-                DataEnsurance.LoadXML();
-            }
-
-
-
-        }
-
-
-
-
-
-
-
-
         internal UUICustomButton UUIButton => _uuiButton;
         internal static UUICustomButton _uuiButton;
         private static UltimateEyeCandyPatch UltimateEyeCandyPatch { get; set; }
-        public static object Instance { get; private set; }
+   
         public object gameObject { get; private set; }
+
+        public override string HarmonyID => "com.nyoko.thememixer2.5";
+
+        public override string BaseName => "Theme Mixer 2.5";
+
         private UILabel catalogVersionLabel;
         private KeyCode _hotkey;
         private static UIToggle UnifiedUICall;
@@ -112,9 +91,11 @@ namespace ThemeMixer
 
 
         [UsedImplicitly]
-        public void OnEnabled()
-
+        public override void OnEnabled()
         {
+            base.OnEnabled();
+
+            
 
             EventHandler += HandleUIToggleClickedEvent;
             EnsureManagers();
@@ -222,8 +203,10 @@ namespace ThemeMixer
         internal void ResetButton() => _uuiButton.IsPressed = false;
 
         [UsedImplicitly]
-        public void OnDisabled()
+        public override void OnDisabled()
         {
+            base.OnDisabled();
+            
             ReleaseManagers();
             if (HarmonyHelper.IsHarmonyInstalled)
             {
@@ -235,8 +218,8 @@ namespace ThemeMixer
 
         public void OnReleased() { }
 
-        public void OnLevelLoaded(LoadMode mode)
-        {
+        public void Initializer() {
+        
             Ensurance();
             UUI();
             ThemeSprites.CreateAtlas();
@@ -266,7 +249,7 @@ namespace ThemeMixer
         }
 
 
-
+       
         private static void EnsureManagers()
         {
             SerializationService.Ensure();
@@ -289,7 +272,7 @@ namespace ThemeMixer
             SerializationService.Release();
         }
 
-        private static void ManagersOnLevelLoaded()
+        public static void ManagersOnLevelLoaded()
         {
             SerializationService.Instance.OnLevelLoaded();
 
@@ -305,7 +288,18 @@ namespace ThemeMixer
             UIController.Instance.OnLevelUnloaded();
         }
 
+        public override void LoadSettings()
+    {
+            DataEnsurance.LoadXML();
+            // Enable detailed logging.
+            Logging.DetailLogging = true;
+        }
+
+    public override void SaveSettings()
+    {
+            DataEnsurance.SaveXML();
     }
+}
 }
 
 

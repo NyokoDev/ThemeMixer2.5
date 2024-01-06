@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using ColossalFramework.UI;
 using ThemeMixer.Themes;
@@ -68,29 +69,54 @@ namespace ThemeMixer.Resources
 
         public static void CreateAtlas()
         {
-            SpriteNames.Clear();
-            SpriteTextures.Clear();
-            foreach (MapThemeMetaData meta in ThemeManager.Instance.Themes.Values)
+            try
             {
-                if (meta == null) continue;
-                for (var i = 0; i < AssetNames.Length; i++)
+                SpriteNames.Clear();
+                SpriteTextures.Clear();
+
+                foreach (MapThemeMetaData meta in ThemeManager.Instance.Themes.Values)
                 {
-                    string assetName = i < 2 ? string.Concat(meta.name, "_", AssetNames[i]) : AssetNames[i];
-                    string spriteName = string.Concat(meta.assetRef.fullName, assetName);
-                    spriteName = Regex.Replace(spriteName, @"(\s+|@|&|'||<|>|#|"")", ""); var tex = meta.assetRef.package.Find(assetName)?.Instantiate<Texture2D>();
-                    if (tex == null)
+                    if (meta == null) continue;
+
+                    for (var i = 0; i < AssetNames.Length; i++)
                     {
-                        Debug.Log("Failed to load texture: " + spriteName);
-                        continue;
+                        string assetName = i < 2 ? string.Concat(meta.name, "_", AssetNames[i]) : AssetNames[i];
+                        string spriteName = string.Concat(meta.assetRef.fullName, assetName);
+                        spriteName = Regex.Replace(spriteName, @"(\s+|@|&|'||<|>|#|"")", "");
+
+                        try
+                        {
+                            var tex = meta.assetRef.package.Find(assetName)?.Instantiate<Texture2D>();
+
+                            if (tex == null)
+                            {
+                                Debug.Log("Failed to load texture: " + spriteName);
+                                continue;
+                            }
+
+                            Texture2D spriteTex = tex.ScaledCopy(64.0f / tex.height);
+                            Object.Destroy(tex);
+                            spriteTex.Apply();
+
+                            SpriteNames.Add(spriteName);
+                            SpriteTextures.Add(spriteTex);
+                        }
+                        catch (Exception texEx)
+                        {
+                            Debug.LogError($"Exception loading texture '{spriteName}': {texEx.Message}");
+                      
+                        }
                     }
-                    Texture2D spriteTex = tex.ScaledCopy(64.0f / tex.height);
-                    Object.Destroy(tex);
-                    spriteTex.Apply();
-                    SpriteNames.Add(spriteName);
-                    SpriteTextures.Add(spriteTex);
                 }
+
+                Atlas = ResourceUtils.CreateAtlas("ThemesAtlas", SpriteNames.ToArray(), SpriteTextures.ToArray());
             }
-            Atlas = ResourceUtils.CreateAtlas("ThemesAtlas", SpriteNames.ToArray(), SpriteTextures.ToArray());
+            catch (Exception ex)
+            {
+                
+                Debug.LogError($"Exception occurred in CreateAtlas: {ex.Message}");
+             
+            }
         }
     }
 }

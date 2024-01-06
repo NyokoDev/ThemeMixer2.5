@@ -21,6 +21,6 @@ public class ThemeMixerTool : ToolBase
     }
 
     // Define the method that will be called within the lambda expression
-    
-    
+
+
 }
