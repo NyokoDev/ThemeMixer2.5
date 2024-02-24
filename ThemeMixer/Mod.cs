@@ -40,11 +40,14 @@ namespace ThemeMixer
     using ThemeMixer.Structure;
     using System.Reflection;
 
+#if DEBUG
+    using ThemeMixer.UI.Abstraction.ColorPanel.ColorWheel;
+#endif
     public class Mod : PatcherMod<OptionsPanel, PatcherBase>, IUserMod
-{
+    {
 
-  
 
+        public override string Name => "Theme Mixer 2.5";
         public string Description => Translation.Instance.GetTranslation(TranslationID.MOD_DESCRIPTION);
 
         public static bool InGame => (ToolManager.instance.m_properties.m_mode == ItemClass.Availability.Game);
@@ -73,7 +76,7 @@ namespace ThemeMixer
         internal UUICustomButton UUIButton => _uuiButton;
         internal static UUICustomButton _uuiButton;
         private static UltimateEyeCandyPatch UltimateEyeCandyPatch { get; set; }
-   
+
         public object gameObject { get; private set; }
 
         public override string HarmonyID => "com.nyoko.thememixer2.5";
@@ -98,7 +101,7 @@ namespace ThemeMixer
         {
             base.OnEnabled();
 
-            
+
 
             EventHandler += HandleUIToggleClickedEvent;
             EnsureManagers();
@@ -106,7 +109,7 @@ namespace ThemeMixer
             HarmonyHelper.DoOnHarmonyReady(() => Patcher.PatchAll());
             UnityEngine.Debug.Log("Theme Mixer 2.5 has been initialized.");
             ToggleInstance();
-          
+
 
             // Load XML data 
             DataEnsurance.LoadXML();
@@ -133,8 +136,8 @@ namespace ThemeMixer
         }
 
 
-        
-        
+
+
 
 
 
@@ -146,7 +149,7 @@ namespace ThemeMixer
         }
 
         private bool _toggled = UIToggle._toggled;
-       
+
 
 
         public void OnLoad()
@@ -169,7 +172,7 @@ namespace ThemeMixer
                     }
                     else
                     {
-                        
+
                         active = !active;
                         HandleUIToggleClickedEvent();
                         Debug.Log("Theme Mixer 2.5: UUI button clicked.");
@@ -179,8 +182,8 @@ namespace ThemeMixer
 
             );
             Debug.Log("Theme Mixer 2.5: UUI Button created.");
-        
-    }
+
+        }
 
 
 
@@ -199,7 +202,7 @@ namespace ThemeMixer
         public void OnToolChanged(ToolBase newTool)
         {
 
-          
+
 
         }
 
@@ -217,7 +220,7 @@ namespace ThemeMixer
         public override void OnDisabled()
         {
             base.OnDisabled();
-            
+
             ReleaseManagers();
             if (HarmonyHelper.IsHarmonyInstalled)
             {
@@ -230,15 +233,27 @@ namespace ThemeMixer
         public void OnReleased() { }
 
         public void Initializer() {
-        
+
             Ensurance();
             UUI();
             ThemeSprites.CreateAtlas();
             ManagersOnLevelLoaded();
             DataEnsurance.LoadXML();
-
+            InitializeCW();
 
         }
+
+        private void InitializeCW()
+        {
+            GameObject newGameObject = new GameObject("ColorWheelObjects");
+            newGameObject.transform.position = new Vector3(0f, 0f, 0f);
+        }
+
+#if DEBUG
+            ColorWheel colorWheel = newGameObject.AddComponent<ColorWheel>();
+#endif
+
+
 
         public void OnLevelUnloading()
         {

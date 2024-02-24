@@ -5,6 +5,10 @@ using ThemeMixer.Themes;
 using ThemeMixer.Themes.Enums;
 using ThemeMixer.TranslationFramework;
 using ThemeMixer.UI.Abstraction;
+
+#if DEBUG
+using ThemeMixer.UI.Abstraction.ColorPanel.ColorWheel;
+#endif
 using UnityEngine;
 
 namespace ThemeMixer.UI.CategoryPanels
@@ -20,6 +24,7 @@ namespace ThemeMixer.UI.CategoryPanels
         private CheckboxPanel _disableCompileCheckboxPanel;
         private ButtonPanel _loadButtonPanel;
         private ButtonPanel _subscribeButtonPanel;
+        private ButtonPanel _colorPickerButtonPanel;
 
         private PanelBase _saveMixPanel;
         private PanelBase _textFieldPanel;
@@ -188,6 +193,9 @@ namespace ThemeMixer.UI.CategoryPanels
             _loadButtonPanel.AlignRight();
             _loadButtonPanel.EventButtonClicked += OnLoadClicked;
         }
+
+    
+
         private void CreateSubscribeButton()
         {
             _subscribeButtonPanel = _selectMixPanel.AddUIComponent<ButtonPanel>();
@@ -215,6 +223,13 @@ namespace ThemeMixer.UI.CategoryPanels
             if (mix == null) return;
             Controller.LoadMix(mix);
         }
+
+#if DEBUG
+        private void ColorPickClick()
+        {
+            ColorWheel.isVisible = true;
+        }
+#endif
 
         private void CreateSaveMixPanel()
         {

@@ -1,4 +1,5 @@
-﻿using ColossalFramework.UI;
+﻿using AlgernonCommons.UI;
+using ColossalFramework.UI;
 using ThemeMixer.UI.Abstraction;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ namespace ThemeMixer.UI
 
         private void CreateButton()
         {
-            _button = UIUtils.CreateButton(this, new Vector2(112.5f, 30.0f));
+            _button = UIButtons.AddSmallerButton(this, 112.5f, 30.0f, "");
             _button.eventClicked += OnButtonClicked;
         }
 
