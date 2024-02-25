@@ -49,7 +49,7 @@ namespace ThemeMixer.Patching
                 if (latestDirectory != null)
                 {
                     string inPath = Path.Combine(latestDirectory.FullName, "Content");
-                    if (File.Exists(Path.Combine(workshopStagingAreaPath, "ThemeMix.xml")))
+                    if (File.Exists(Path.Combine(inPath, "ThemeMix.xml")))
                     {
                         // Check if workshopStagingAreaPath is null or empty
                         if (string.IsNullOrEmpty(workshopStagingAreaPath))
@@ -115,7 +115,7 @@ namespace ThemeMixer.Patching
                     }
                     else
                     {
-                        // Do absolutely nothing
+                        FileDebugger.Debug("Not a theme mix?");
                     }
                 }
                 else
